@@ -1,11 +1,11 @@
 {
-  "name": "new-project",
+  "name": "code-ua-furniture",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/new-project/",
+    "build": "vite build --base=/code-ua-furniture/",
     "preview": "vite preview"
   },
   "devDependencies": {

@@ -20,6 +20,9 @@
 
 [izi-toast.js] - функції зв'язані з бібліотекою iziToast
 
+[variables.js] зберігай змінні (let, const), які будуть використовуватись в
+роботі.
+
 # Імпорт accordion-js
 
 import Accordion from "accordion-js"; import

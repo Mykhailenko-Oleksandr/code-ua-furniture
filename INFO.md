@@ -46,7 +46,7 @@ import Accordion from "accordion-js"; import
 
 • npm run dev - жива сторінка
 
-• git switch -c [branch_name] - створення гілки і перехід на неї
+• git switch -c [branch_name - створення гілки і перехід на неї
 
 • git branch -d [branch_name] - видалити гілку локально
 

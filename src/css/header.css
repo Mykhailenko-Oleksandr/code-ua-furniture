@@ -1,1 +1,169 @@
 /* Класи для хедеру сторінки */
+
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 9;
+    background-color: #fff;
+  }
+
+  .header-mob-menu {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    padding-top: 19px;
+    padding-bottom: 19px;
+  }
+
+  .header-burger-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .header-nav {
+    display: none;
+  }
+  
+  .header-link-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-icon {
+    width: 36px;
+    height: 35px;
+  }  
+
+
+  .logo-text {
+    font-size: 19px;
+    color: #000;
+  }
+
+  
+  .logo-text {
+    font-size: 20px;
+    color: #080c09;
+  }
+  
+
+  .mobile-buy-btn {
+    display: inline-block;
+    padding: 8px 20px;
+    box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+    background-color: #6b0609;
+    color: #fff;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    min-width: 335px;
+    align-self: flex-end;
+    border: transparent;
+  }
+
+  .mobile-buy-btn:hover,
+  .mobile-buy-btn:focus  {
+box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+background-color: #6b0609;
+opacity: 0.5;
+  }
+  
+
+  @media only screen and (min-width: 768px) {
+   
+    .mobile-buy-btn {
+      display: inline-block;
+      padding: 8px 20px;
+      box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05);
+      background-color: #6b0609;
+      color: #fff;
+      border-radius: 50px;
+      font-weight: 500;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      min-width: 185px;
+      height: 42px;
+      border: transparent;
+      
+    }
+
+  }
+
+  @media only screen and (min-width: 900px) {
+ 
+
+  }
+
+  @media only screen and (min-width: 1440px) {
+    .header-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-list {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .header-link {
+      display: block;
+      position: relative;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.6;
+      text-align: center;
+      color: #080c09;
+      padding-top: 22px;
+      padding-bottom: 22px;
+    }
+
+    .header-buy-button {
+      display: flex;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1.6;
+      text-align: center;
+      justify-content: center;
+      color: #fff;
+      padding-top: 22px;
+      padding-bottom: 22px;
+      border-radius: 100px;
+      padding: 8px 20px;
+      min-width: 129px;
+      height: 42px; 
+      box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+      background-color: #6b0609;
+      border: transparent;
+    }
+
+
+    .header-link-logo {
+      padding-top: 18px;
+      padding-bottom: 17px;
+    }
+
+
+  .header-mob-menu {
+    display: none;
+  }
+
+  }
+
+
+
+

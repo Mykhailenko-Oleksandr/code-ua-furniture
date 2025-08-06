@@ -38,11 +38,15 @@
 
 .feedback-stars-box {
   display: flex;
-  gap: 4px;
+  align-items: center;
+  max-height: 20px;
   margin-bottom: 24px;
 }
 
-.feedback-star-icon {
+.feedback-stars-box img,
+.feedback-stars-box input {
+  width: 20px;
+  height: 20px;
 }
 
 .feedback-box-text {

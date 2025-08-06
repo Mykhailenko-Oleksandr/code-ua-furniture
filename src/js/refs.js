@@ -3,5 +3,6 @@
  */
 
 export const refs = {
-
+    feedbacksBox: document.querySelector('.feedback-all-box'),
+    starsBox: document.querySelector('[data-raty]'),
 }

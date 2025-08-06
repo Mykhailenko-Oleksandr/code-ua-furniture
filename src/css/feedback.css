@@ -30,6 +30,10 @@
 
 .feedback-box {
   min-height: 295px;
+
+  &:nth-child(n + 2) {
+    display: none;
+  }
 }
 
 .feedback-stars-box {
@@ -109,10 +113,30 @@
     font-size: 18px;
   }
 
+  .feedback-box {
+    min-height: 254px;
+
+    &:nth-child(2) {
+      display: block;
+    }
+  }
+
   .feedback-box-text {
     font-size: 20px;
   }
 }
 
 @media only screen and (min-width: 1440px) {
+  .feedback {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .feedback-box {
+    min-height: 220px;
+
+    &:nth-child(3) {
+      display: block;
+    }
+  }
 }

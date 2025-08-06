@@ -1,48 +1,89 @@
 /* Класи для секції feedback */
 
 .feedback {
+  padding-top: 64px;
+  padding-bottom: 64px;
 }
 
 .container {
 }
 
 .feedback-title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+
+  margin-bottom: 24px;
 }
 
 .feedback-text {
+  font-size: 16px;
+
+  margin-bottom: 80px;
 }
 
 .feedback-all-box {
+  display: flex;
+  gap: 24px;
 }
 
 .feedback-box {
+  min-height: 295px;
 }
 
 .feedback-stars-box {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 24px;
 }
 
 .feedback-star-icon {
 }
 
 .feedback-box-text {
+  font-weight: 500;
+  margin-bottom: 24px;
 }
 
 .feedback-box-name {
+  font-weight: 700;
+  font-size: 16px;
 }
 
 .feedback-nav-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .feedback-points-box {
+  display: flex;
+  gap: 8px;
 }
 
 .feedback-point {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #080c09;
+  opacity: 0.2;
 }
 
 .feedback-btn-box {
+  display: flex;
+  gap: 16px;
 }
 
 .feedback-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: #f2f2f2;
+  border: 1px solid rgba(8, 12, 9, 0.15);
+  border-radius: 50%;
 }
 
 .feedback-btn-left {
@@ -52,4 +93,26 @@
 }
 
 .feedback-btn-right {
+}
+
+@media only screen and (min-width: 768px) {
+  .feedback {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .feedback-title {
+    font-size: 48px;
+  }
+
+  .feedback-text {
+    font-size: 18px;
+  }
+
+  .feedback-box-text {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
 }

@@ -69,4 +69,4 @@ import Accordion from "accordion-js"; import
 
 • npm install [package-name] - встановить бібліотеку як залежність проєкту
 
-• npm uninstall [package-name] - видаляє будь-яку залежність
+• npm uninstall [package-name] - видаляє будь-яку залежність / g

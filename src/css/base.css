@@ -1,3 +1,27 @@
+/* CSS Variables from Figma Design System */
+:root {
+  /* Colors */
+  --Color-Madang: #6B0609;
+  --Color-White: #FFFFFF;
+  --Color-Scheme-1-Background: #FFFFFF;
+  
+  /* Opacity Colors */
+  --OpacityNeutralDarkest5: rgba(0, 0, 0, 0.05);
+  --OpacityNeutralDarkest15: rgba(0, 0, 0, 0.15);
+  
+  /* Page Padding */
+  --page-padding-mobile: 20px;
+  --page-padding-tablet: 32px;
+  --page-padding-desktop: 64px;
+  
+  /* Text Sizes */
+  --text-sizes-heading-1-mobile: 28px;
+  --text-sizes-heading-1-tablet: 40px;
+  --text-sizes-heading-1-desktop: 56px;
+  --text-sizes-text-medium: 16px;
+  --text-sizes-text-regular: 16px;
+}
+
 section {
   padding-top: 48px;
   padding-bottom: 48px;

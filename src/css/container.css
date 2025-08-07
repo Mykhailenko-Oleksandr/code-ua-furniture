@@ -1,7 +1,7 @@
 /* Класи для контейнерів сторінок */
 
 .container {
-  max-width: 375px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -22,7 +22,10 @@
 
 @media only screen and (min-width: 1440px) {
   .container {
-    max-width: 1440px;
+    /* Exact width from Figma Container spec: 1312px */
+    width: 1312px;
+    max-width: 1312px;
+    /* Padding calculated: (1440 - 1312) / 2 = 64px */
     padding: 0 64px;
   }
 }

@@ -1,1 +1,102 @@
 /* Класи для хедеру сторінки */
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-nav {
+    display: none;
+  }
+
+  .header-burger-menu {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    padding-top: 19px;
+    padding-bottom: 19px;
+  }
+
+  .header-burger-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .header-link-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 159px;
+    height: 35px;
+  }  
+
+
+  @media only screen and (min-width: 1440px) {
+    .header-burger-menu {
+      display: none;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-list {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .header-link {
+      display: block;
+      position: relative;
+      font-size: 16px;
+      text-align: center;
+      padding-top: 22px;
+      padding-bottom: 22px;
+      transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .header-link:hover,
+    .header-link:focus {
+    opacity: 0.5;
+    }
+
+
+    .header-link-logo {
+      padding-top: 18px;
+      padding-bottom: 18px;
+    }
+
+  .header-buy-button {
+    display: inline-block;
+    padding: 8px 20px;
+    box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+    background-color: #6b0609;
+    color: #fff;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    min-width: 129px;
+    align-self: flex-end;
+    border: transparent;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .header-buy-button:hover,
+  .header-buy-button:focus {
+    opacity: 0.5;
+  }
+  }
+
+
+
+

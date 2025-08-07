@@ -1,7 +1,7 @@
 /* Класи для футеру сторінки */
 .footer{
     background-color: #73131D;
-    padding: 0px 20px 32px 20px;   
+    padding: 26px 20px 32px 20px;   
     
 }
 
@@ -10,7 +10,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top: 26px;
+    
     gap:24px
    
 }
@@ -84,9 +84,7 @@
 
 }
 @media only screen and (min-width: 1440px){
-    .footer{
-        padding-right:60px ;
-    }
+   
 
  .footer-wrap{
         flex-direction: row;

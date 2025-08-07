@@ -1,132 +1,103 @@
-/* Hero section base styles */
 .hero {
-  width: 100%;
-  height: 508px;
-
-  /* Correct order: image → overlay gradient → fallback color */
-  background:
-    url('../img/hero/hero-desk.jpg') center/cover no-repeat,
-    linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    #D9D9D9;
-
-  display: flex;
-  align-items: center;
+  max-width: 375px;
+  background-image: url('../img/hero/hero-mob.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 157px;
+  padding-bottom: 157px;
 }
 
-/* Container */
-.hero__container {
-  width: 1312px;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0 20px;
+@media (min-resolution: 2x) {
+  .hero {
+    background-image: url(../img/hero/hero-mob@2x.jpg);
+  }
 }
 
-/* Content */
-.hero__content {
-  max-width: 560px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-/* Title */
-.hero__title {
-  font-family: 'Raleway', sans-serif;
+.hero-title {
   font-weight: 700;
-  font-size: 48px;
-  line-height: 120%;
-  letter-spacing: 1%;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
   color: #fff;
+
+  margin-bottom: 24px;
 }
 
-/* Subtitle */
-.hero__subtitle {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 400;
+.hero-text {
   font-size: 16px;
-  line-height: 160%;
   color: #fff;
+
+  margin-bottom: 32px;
 }
 
-/* Button */
-.hero__btn {
-  display: inline-block;
-  padding: 10px 24px;
-  width: 209px;
-  height: 46px;
-
-  font-family: 'Raleway', sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 160%;
-  color: #fff;
+.hero-btn {
+  display: block;
   text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 
-  background: #6B0609;
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff;
+
+  background-color: #6b0609;
   border-radius: 100px;
-  text-decoration: none;
 
-  /* Box shadows from design */
-  box-shadow:
-    0px 1px 2px 0px rgba(0, 0, 0, 0.05),
-    0px -2px 1px 0px #00000033 inset,
-    0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset,
-    0px 2px 1px 0px #ffffff40 inset,
-    0px 32px 24px 0px #ffffff0d inset;
+  box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
 
-  transition: all 0.3s ease-in-out;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    opacity: 0.5;
+  }
 }
 
-/* Hover */
-.hero__btn:hover {
-  background: #8c0a0d;
-  transform: scale(1.02);
-}
-
-/* Tablet (768px) */
-@media (max-width: 1024px) {
+@media (min-width: 768px) {
   .hero {
-    height: 397px;
-    background:
-      url('../img/hero/hero-tab.jpg') center/cover no-repeat,
-      linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-      #D9D9D9;
+    max-width: 768px;
+    background-image: url('../img/hero/hero-tab.jpg');
+    padding-top: 37px;
+    padding-bottom: 37px;
   }
 
-  .hero__title {
-    font-size: 36px;
+  @media (min-resolution: 2x) {
+    .hero {
+      background-image: url(../img/hero/hero-tab@2x.jpg);
+    }
   }
 
-  .hero__subtitle {
-    font-size: 14px;
+  .hero-title {
+    font-size: 56px;
+    max-width: 560px;
+  }
+
+  .hero-text {
+    font-size: 18px;
+    max-width: 560px;
+  }
+
+  .hero-btn {
+    display: inline-block;
+    padding: 10px 24px;
   }
 }
 
-/* Mobile (375px) */
-@media (max-width: 768px) {
+@media (min-width: 1440px) {
   .hero {
-    height: 617px;
-    background:
-      url('../img/hero/hero-mob.jpg') center/cover no-repeat,
-      linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-      #D9D9D9;
-
-    text-align: center;
-    justify-content: center;
+    max-width: 1440px;
+    background-image: url('../img/hero/hero-desk.jpg');
+    padding-top: 92px;
+    padding-bottom: 92px;
   }
 
-  .hero__container {
-    width: 335px;
-    padding: 0 20px;
-  }
-
-  .hero__content {
-    width: 100%;
-    align-items: center;
-  }
-
-  .hero__btn {
-    width: 100%;
-    max-width: 335px;
+  @media (min-resolution: 2x) {
+    .hero {
+      background-image: url(../img/hero/hero-desk@2x.jpg);
+    }
   }
 }

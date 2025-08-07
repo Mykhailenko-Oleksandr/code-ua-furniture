@@ -1,10 +1,7 @@
-
 .modal-product {
- 
   visibility: hidden;
   opacity: 0;
 
- 
   position: fixed;
   top: 0;
   left: 0;
@@ -15,82 +12,144 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), 
-              visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 
 .modal-product.is-open {
   opacity: 1;
   visibility: visible;
 }
 
-
 .modal-product .container {
-  width:inherit;
+  max-width: 335px;
   height: inherit;
   background-color: #fff;
-  border-radius: 8px; /* Скругление углов, как на макете */
- 
-  overflow-y: auto; 
-  position: relative; 
-  padding:64px 20px 20px 20px
+  border-radius: 8px;
+
+  overflow-y: auto;
+  position: relative;
+  padding: 64px 20px 44px 20px;
 }
 
-
 .modal-close-btn {
+  width: 32px;
+  height: 32px;
   position: absolute;
   top: 16px;
-  right: 16px; 
-  fill:black;
-  border:transparent;
+  right: 16px;
+  fill: black;
+  border: none;
   background-color: transparent;
 }
 
-.modal-order-btn{
-
-font-weight: 500;
-font-size: 16px;
-color: #fff;
-border-radius: 100px;
-padding: 10px 24px;
-width: 310px;
-height: 46px;
-box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px var(--opacity-neutral-darkest-15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 var(--opacity-white-5);
-background: #6B0609;
-text-align: center;
-}
-
-.btn-wrapper{
+.btn-wrapper {
   display: flex;
   justify-content: center;
 }
 
-.no-scroll {
+.modal-details-content {
+}
+
+.modal-gallery {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-main-image {
+  border-radius: 8px;
   overflow: hidden;
 }
 
-/* Скрываем стандартные радио-кнопки */
+.modal-gallery-thumbs-list {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+
+  & img {
+    flex-basis: calc((100% - 16px) / 2);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+}
+
+.modal-product-name {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+
+.modal-product-category {
+  font-size: 16px;
+}
+
+.modal-price-rating-wrap {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+
+  margin-bottom: 24px;
+}
+
+.modal-colors-label {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.modal-colors-list {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
 .modal-color-input {
   display: none;
 }
 
-/* Стилизуем <label> как видимый цветной кружок */
 .modal-color-label {
-  display: block; 
-  width: 20px;
-  height: 20px;
-  border-radius: 50%; 
-  border: 1px solid #ccc; 
+  display: block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
   cursor: pointer;
-  transition: transform 0.2s ease-in-out;
-}
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-
-.modal-color-label:hover {
-  transform: scale(1.1);
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .modal-color-input:checked + .modal-color-label {
-  border: 2px solid #000; 
+  border: 4px solid #838584;
+}
+
+.modal-product-description {
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+.modal-dimension-item {
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.modal-order-btn {
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  background: #6b0609;
+  box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+  border: none;
 }

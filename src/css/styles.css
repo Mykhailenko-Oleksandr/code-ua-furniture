@@ -4,6 +4,7 @@
 @import url('./base.css');
 @import url('./container.css');
 @import url('./loader.css');
+@import 'swiper/css/bundle';
 
 @import url('./header.css');
 @import url('./hero.css');

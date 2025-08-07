@@ -2,13 +2,13 @@ import { iziToastError } from "./izi-toast";
 import { getFeedback } from "./products-api";
 import { renderFeedback } from "./render-function";
 
-document.addEventListener('DOMContentLoaded', initHomePage);
+// document.addEventListener('DOMContentLoaded', initHomePage);
 
-async function initHomePage() {
-    try {
-        const feedbacks = await getFeedback();
-        renderFeedback(feedbacks);
-    } catch (error) {
-        iziToastError(error.massege)
-    }
-}
+// export async function initHomePage() {
+//     try {
+//         const feedbacks = await getFeedback();
+//         renderFeedback(feedbacks);
+//     } catch (error) {
+//         iziToastError(error.massege)
+//     }
+// }

@@ -1,11 +1,6 @@
-/* Класи для секції feedback */
-
 .feedback {
   padding-top: 64px;
   padding-bottom: 64px;
-}
-
-.container {
 }
 
 .feedback-title {
@@ -23,20 +18,8 @@
   margin-bottom: 80px;
 }
 
-.feedback-all-box {
-}
-
-.feedback-swiper-box {
-  /* display: flex;
-  gap: 24px; */
-}
-
 .feedback-box {
   min-height: 295px;
-
-  /* &:nth-child(n + 2) {
-    display: none;
-  } */
 }
 
 .feedback-stars-box {
@@ -68,63 +51,62 @@
   justify-content: space-between;
 }
 
-.feedback-points-box {
-  display: flex;
-  gap: 8px;
-}
-
-/* .feedback-point {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #080c09;
-  opacity: 0.2;
-} */
-
 .feedback-btn-box {
   display: flex;
   gap: 16px;
 }
 
-/* Скидаємо Swiper-стилі */
-.swiper-button-prev,
-.swiper-button-next {
-  position: static !important;
-  top: auto !important;
-  bottom: auto !important;
-  left: auto !important;
-  right: auto !important;
-  width: auto !important;
-  height: auto !important;
-  margin: 0 !important;
-  color: inherit !important;
+.feedback-btn.swiper-button-prev,
+.feedback-btn.swiper-button-next {
+  position: static;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  margin: 0;
+  color: inherit;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: #f2f2f2;
+  border: 1px solid rgba(8, 12, 9, 0.15);
+  border-radius: 50%;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &::after {
-    content: none !important;
+    content: none;
   }
+
+  &:hover,
+  &:focus {
+    background-color: #975052;
+    outline: none;
+    & svg {
+      fill: #fff;
+    }
+  }
+
+  &:active {
+    background-color: #6b0609;
+  }
+}
+
+.feedback-points-box.swiper-pagination {
+  position: static;
+  text-align: unset;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #080c09;
 }
 
 .swiper-button-prev svg,
 .swiper-button-next svg {
-  all: unset !important;
-}
-
-.feedback-btn {
-  /* all: unset !important; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px !important;
-  height: 48px !important;
-  background-color: #f2f2f2;
-  border: 1px solid rgba(8, 12, 9, 0.15);
-  border-radius: 50%;
-}
-
-.feedback-btn-icon {
-}
-
-.feedback-btn-right {
+  all: unset;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media only screen and (min-width: 768px) {
@@ -143,19 +125,10 @@
 
   .feedback-box {
     min-height: 254px;
-
-    /* &:nth-child(2) {
-      display: block;
-    } */
   }
 
   .feedback-box-text {
     font-size: 20px;
-  }
-
-  .swiper {
-    max-width: 340px;
-    min-height: 254px;
   }
 }
 
@@ -167,19 +140,5 @@
 
   .feedback-box {
     min-height: 220px;
-
-    /* &:nth-child(3) {
-      display: block;
-    } */
   }
-
-  .swiper {
-    max-width: 421px;
-    min-height: 220px;
-  }
-}
-
-.swiper {
-  max-width: 335px;
-  min-height: 295px;
 }

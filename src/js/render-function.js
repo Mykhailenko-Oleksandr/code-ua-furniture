@@ -4,7 +4,6 @@
 import Raty from 'raty-js';
 
 import { refs } from "./refs";
-import { swiper } from './swiper';
 
 
 export async function renderFeedback(feedbacks) {
@@ -35,5 +34,4 @@ export async function renderFeedback(feedbacks) {
 
         raty.init();
     });
-    swiper()
 }

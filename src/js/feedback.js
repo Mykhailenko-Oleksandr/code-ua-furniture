@@ -1,3 +1,4 @@
+import { iziToastError } from "./izi-toast";
 import { getFeedback } from "./products-api";
 import { renderFeedback } from "./render-function";
 
@@ -8,7 +9,6 @@ async function initHomePage() {
         const feedbacks = await getFeedback();
         renderFeedback(feedbacks);
     } catch (error) {
-        console.log(error.massege);
-
+        iziToastError(error.massege)
     }
 }

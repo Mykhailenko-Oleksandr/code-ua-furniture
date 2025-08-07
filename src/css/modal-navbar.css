@@ -1,77 +1,52 @@
-/* Класи для модального вікна navbar */
 
-/* .modal-navbar {
+  .modal-navbar { 
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
-  display: none;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   height: 100%;
-  background-color: #fff;
-  /* /* &.modal--is-open {
-    display: flex;
-  } */
-/* } */
+  background-color: #ffffff;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0; 
+  pointer-events: none;
+ } 
+
 
 .mobile-menu {
-  opacity: 0;
-  visibility: hidden;
-  top: 0;
-  z-index: 1000;
-  position: fixed;
-  width: 100%;
-  max-width: 375px;
-  background-color: #fff;
-  padding: 19px 20px 20px 20px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease;
- 
-}
-
-.is-open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
 }
 
 .mobile-menu-top {
   display: flex;
+  align-items: baseline;
   justify-content: space-between;
-  align-items: center;
+  padding-top: 18px;
   margin-bottom: 32px;
-}
-
-.mobile-logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  font-size: 19px;
-}
-
-.logo-text {
-  font-size: 20px;
-  color: #080c09;
-}
+  }
 
 .modal-close-btn {
-  background-color: transparent;
-  position: absolute;
-  top: 19px;
-  right: 20px;
-  border: transparent;
-  width: 32px;
-  height: 32px;
-  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  opacity: 0.5;
+}
+
+.close-icon {
+  width: 32px;
+  height: 32px;
+}
 
 .mob-menu-wrapper {
   display: flex;
@@ -81,148 +56,64 @@
 }
 
 .mobile-link {
+  font-size: 16px;
   font-weight: 600;
-  font-size: 18px;
-  line-height: 1.6;
-  color: #080c09;
-  display: block;
-  position: relative;
+  line-height: 1.5;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-link:hover,
+.mobile-link:focus {
+  opacity: 0.5;
 }
 
 .mobile-buy-btn {
-  display: inline-block;
-  padding: 8px 20px;
+  display: block;
+  min-width: 335px;
+  padding:  8px 20px;
   box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
   background-color: #6b0609;
-  color: #fff;
+  color: #ffffff;
   border-radius: 50px;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 16px;
   text-align: center;
   text-decoration: none;
-  min-width: 335px;
-  align-self: flex-end;
+  border: transparent;
+  cursor: pointer;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mobile-buy-btn:hover,
-.mobile-buy-btn:focus  {
-box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
-background-color: #6b0609;
-opacity: 0.5;
+.mobile-buy-btn:focus {
+  opacity: 0.5;
 }
 
+ 
 
 @media only screen and (min-width: 768px) {
-  .mobile-menu {
-    width: 249px;
+
+  .modal-navbar {
     right: 0;
-    padding: 24px 32px 24px 32px;
-  }
-
-  .mobile-menu-top {
-    position: relative;
-    
-  }
-
-  .modal-close-btn {
-      position: absolute;
-      top: 19px;
-      right: 19px;
-    }
-
-  .mobile-logo {
-    display: none;
   }
 
   .mob-menu-wrapper {
     align-items: flex-end;
-   
   }
 
   .mobile-buy-btn {
-    display: inline-block;
-    padding: 8px 20px;
-    box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05);
-    background-color: #6b0609;
-    color: #fff;
-    border-radius: 50px;
-    font-weight: 500;
-    font-size: 16px;
-    text-align: center;
-    text-decoration: none;
     min-width: 185px;
-    height: 42px;
-    
   }
 
 }
 
 @media only screen and (min-width: 900px) {
-  .mobile-menu {
-   width: 298px;
-   padding: 24px 98px 24px 25px;
+
+  .mobile-buy-btn {
+    min-width: 175px;
   }
-
-
 
 }
-
-@media only screen and (min-width: 1440px) {
-  .header-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .header-list {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-  }
-
-  .header-link {
-    display: block;
-    position: relative;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.6;
-    text-align: center;
-    color: #080c09;
-    padding-top: 22px;
-    padding-bottom: 22px;
-  }
-
-  .header-buy-button {
-    display: flex;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.6;
-    text-align: center;
-    justify-content: center;
-    color: #fff;
-    padding-top: 22px;
-    padding-bottom: 22px;
-    border-radius: 100px;
-    padding: 8px 20px;
-    min-width: 129px;
-    height: 42px; 
-    box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
-    background-color: #6b0609;
-  }
-
-
-  .header-link-logo {
-    padding-top: 18px;
-    padding-bottom: 17px;
-  }
-
-
-.header-mob-menu {
-  display: none;
-}
-
-}
-
 
 
 

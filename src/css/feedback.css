@@ -24,16 +24,19 @@
 }
 
 .feedback-all-box {
-  display: flex;
-  gap: 24px;
+}
+
+.feedback-swiper-box {
+  /* display: flex;
+  gap: 24px; */
 }
 
 .feedback-box {
   min-height: 295px;
 
-  &:nth-child(n + 2) {
+  /* &:nth-child(n + 2) {
     display: none;
-  }
+  } */
 }
 
 .feedback-stars-box {
@@ -70,31 +73,52 @@
   gap: 8px;
 }
 
-.feedback-point {
+/* .feedback-point {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background-color: #080c09;
   opacity: 0.2;
-}
+} */
 
 .feedback-btn-box {
   display: flex;
   gap: 16px;
 }
 
+/* Скидаємо Swiper-стилі */
+.swiper-button-prev,
+.swiper-button-next {
+  position: static !important;
+  top: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  color: inherit !important;
+
+  &::after {
+    content: none !important;
+  }
+}
+
+.swiper-button-prev svg,
+.swiper-button-next svg {
+  all: unset !important;
+}
+
 .feedback-btn {
+  /* all: unset !important; */
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 48px !important;
+  height: 48px !important;
   background-color: #f2f2f2;
   border: 1px solid rgba(8, 12, 9, 0.15);
   border-radius: 50%;
-}
-
-.feedback-btn-left {
 }
 
 .feedback-btn-icon {
@@ -120,13 +144,18 @@
   .feedback-box {
     min-height: 254px;
 
-    &:nth-child(2) {
+    /* &:nth-child(2) {
       display: block;
-    }
+    } */
   }
 
   .feedback-box-text {
     font-size: 20px;
+  }
+
+  .swiper {
+    max-width: 340px;
+    min-height: 254px;
   }
 }
 
@@ -139,8 +168,18 @@
   .feedback-box {
     min-height: 220px;
 
-    &:nth-child(3) {
+    /* &:nth-child(3) {
       display: block;
-    }
+    } */
   }
+
+  .swiper {
+    max-width: 421px;
+    min-height: 220px;
+  }
+}
+
+.swiper {
+  max-width: 335px;
+  min-height: 295px;
 }

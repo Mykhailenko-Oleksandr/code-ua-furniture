@@ -5,7 +5,7 @@
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
-import iconError from './img/error.svg'
+import iconError from '../img/error.svg'
 
 export function iziToastError(message) {
     return iziToast.error({

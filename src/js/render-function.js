@@ -4,18 +4,19 @@
 import Raty from 'raty-js';
 
 import { refs } from "./refs";
+import { swiper } from './swiper';
 
 
 export async function renderFeedback(feedbacks) {
     const markup = feedbacks.map(({ descr, name, rate }, index) => `
-    <div class="feedback-box">
+    <div class="feedback-box swiper-slide">
         <div class="feedback-stars-box" data-score="${rate}" id="stars-${index}"></div>
         <div class="feedback-box-text">${descr}</div>
         <div class="feedback-box-name">${name}</div>
  </div>
  `).join("");
 
-    refs.feedbacksBox.innerHTML = markup;
+    refs.swiperWrapper.innerHTML = markup;
 
     feedbacks.forEach((_, index) => {
         const starContainer = document.getElementById(`stars-${index}`);
@@ -34,4 +35,5 @@ export async function renderFeedback(feedbacks) {
 
         raty.init();
     });
+    swiper()
 }

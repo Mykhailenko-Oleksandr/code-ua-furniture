@@ -3,6 +3,7 @@
  */
 
 export const refs = {
-    feedbacksBox: document.querySelector('.feedback-all-box'),
-    starsBox: document.querySelector('[data-raty]'),
+    // feedbacksBox: document.querySelector('.feedback-all-box'),
+    swiperWrapper: document.querySelector('.swiper-wrapper'),
+
 }

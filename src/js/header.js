@@ -13,11 +13,6 @@ const toggleModal = () => {
 openMenuBtn.addEventListener('click', toggleModal);
 closeMenuBtn.addEventListener('click', toggleModal);
 
-mobileMenu.addEventListener('click', (e) => {
-  if (e.target === mobileMenu) {
-    toggleModal();
-  }
-});
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && mobileMenu.classList.contains('navbar-is-open')) {

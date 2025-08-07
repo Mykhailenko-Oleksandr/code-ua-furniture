@@ -13,6 +13,6 @@ export async function initHomePage() {
         renderFeedback(feedbacks);
         swiper();
     } catch (error) {
-        iziToastError(error.massege)
+        iziToastError(error.message)
     }
 }

@@ -6,7 +6,7 @@ import Raty from 'raty-js';
 import { refs } from "./refs";
 
 
-export async function renderFeedback(feedbacks) {
+export function renderFeedback(feedbacks) {
     const markup = feedbacks.map(({ descr, name, rate }, index) => `
     <div class="feedback-box swiper-slide">
         <div class="feedback-stars-box" data-score="${rate}" id="stars-${index}"></div>
@@ -19,6 +19,7 @@ export async function renderFeedback(feedbacks) {
 
     feedbacks.forEach((_, index) => {
         const starContainer = document.getElementById(`stars-${index}`);
+
         const score = Number(starContainer.dataset.score);
 
         const raty = new Raty(starContainer, {

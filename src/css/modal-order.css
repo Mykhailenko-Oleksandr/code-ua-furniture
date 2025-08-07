@@ -1,1 +1,221 @@
-/* Класи для модального вікна order */
+
+.modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000040;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-order {
+    background: #fff;
+    border-radius: 8px;
+    padding: 64px;
+    width: 866px;
+    height: 776px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.modal-close-icon {
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
+    fill: #080c09;
+}
+
+.modal-title {
+    margin: auto;
+    margin-bottom: 48px;
+    width: 530px;
+    height: 116px;
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    text-align: center;
+    color: #080c09;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    word-break: break-word;
+}
+
+.modal-label p,
+.modal-comment-label p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #080c09;
+    margin-bottom: 8px;
+}
+
+.modal-input {
+    width: 738px;
+    height: 42px;
+    padding: 8px 12px;
+    border: 1px solid rgba(8, 12, 9, 0.15);
+    border-radius: 12px;
+    background: rgba(8, 12, 9, 0.05);
+    font-size: 16px;
+    color: #080c09;
+    outline: none;
+    transition: border-color 0.3s ease;
+    display: block;
+    box-sizing: border-box;
+}
+
+.modal-input:invalid:not(:placeholder-shown) {
+    border-color: #6B0609;
+}
+
+.modal-comment-textarea {
+    width: 738px;
+    height: 180px;
+    padding: 12px;
+    border: 1px solid rgba(8, 12, 9, 0.15);
+    border-radius: 12px;
+    background: rgba(8, 12, 9, 0.05);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #080c09;
+    resize: none;
+    outline: none;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.modal-submit-btn {
+    display: block;
+    margin: 24px auto;
+    width: 196px;
+    height: 46px;
+    padding: 10px 24px;
+    border-radius: 100px;
+    background: #6b0609;
+    box-shadow:
+        0 1px 2px 0 rgba(8, 12, 9, 0.05),
+        inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+        inset 0 0 0 1px rgba(8, 12, 9, 0.15),
+        inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+        inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-submit-btn:hover,
+.modal-submit-btn:focus {
+    opacity: 0.5;
+}
+
+.text-valid,
+.text-invalid {
+    display: none;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-top: 4px;
+    margin-left: 4px;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+}
+
+.text-invalid {
+    color: #6b0609;
+}
+
+.text-valid {
+    color: green;
+}
+
+.modal-input:not(:placeholder-shown):invalid~.text-invalid {
+    display: block;
+}
+
+.modal-input:not(:placeholder-shown):valid~.text-valid {
+    display: block;
+}
+
+.input-wrap {
+    position: relative;
+}
+
+.modal-field,
+.modal-comment-field {
+    margin-bottom: 24px;
+}
+
+.modal-comment-label p {
+    margin-bottom: 8px;
+}
+
+
+
+@media (max-width: 1439px) and (min-width: 768px) {
+    .modal-order {
+        width: 704px;
+        height: 776px;
+        padding: 64px;
+    }
+
+    .modal-input,
+    .modal-comment-textarea {
+        width: 576px;
+    }
+}
+
+@media (max-width: 767px) {
+    .modal-order {
+        width: 335px;
+        height: 789px;
+        padding: 64px 20px;
+    }
+
+    .modal-title {
+        width: 295px;
+        font-size: 36px;
+        line-height: 1.2;
+    }
+
+    .modal-input,
+    .modal-comment-textarea {
+        width: 295px;
+    }
+
+    .modal-submit-btn {
+        width: 295px;
+    }
+}
+
+.hidden {
+    display: none !important;
+}

@@ -1,11 +1,62 @@
+<link rel="stylesheet" href="../css/modal-order.css" />
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
+
 <div class="modal-navbar">
   <div class="container"></div>
 </div>
 
 <div class="modal-product">
   <div class="container"></div>
+  <p>perevirka js</p>
 </div>
 
-<div class="modal-order">
-  <div class="container"></div>
+<button id="openModalTestBtn">Відкрити модалку</button>
+
+
+<div class="modal-wrapper modal-overlay">
+  <div class="modal-order">
+    <button type="button" class="modal-close-btn modal-close" id="closeModalBtn">
+      <svg class="modal-close-icon" width="16" height="16">
+        <use href="./img/sprite.svg#icon-x"></use>
+      </svg>
+    </button>
+    <h2 class="modal-title">Замовити зворотний зв'язок</h2>
+    <form class="modal-form">
+      <div class="modal-field">
+        <div class="input-wrap">
+          <label for="name" class="modal-label">
+            <p>Ім’я*</p>
+            <input name="name" id="name" class="modal-input" placeholder="Ваше Ім’я" required />
+          </label>
+          <span class="text-valid">Success!</span>
+          <span class="text-invalid">Invalid name, try again</span>
+        </div>
+      </div>
+
+      <div class="modal-field">
+        <div class="input-wrap">
+          <label for="phone" class="modal-label">
+            <p>Телефон*</p>
+            <input name="phone" id="phone" type="tel" class="modal-input" placeholder="+380" required />
+          </label>
+          <span class="text-valid">Success!</span>
+          <span class="text-invalid">Invalid phone number, try again</span>
+        </div>
+      </div>
+
+      <div class="modal-comment-field">
+        <label for="comment" class="modal-comment-label">
+          <p>Коментар</p>
+          <textarea name="comment" id="comment" class="modal-comment-input modal-comment-textarea"
+            placeholder="Введіть ваше повідомлення..."></textarea>
+        </label>
+      </div>
+
+      <button type="submit" class="modal-submit-btn">Надіслати заявку</button>
+    </form>
+  </div>
 </div>
+
+
+
+<script type="module" src="../js/modal.js"></script>

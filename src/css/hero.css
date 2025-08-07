@@ -1,9 +1,7 @@
 /* Hero section base styles */
 .hero {
   width: 100%;
-  max-width: 1440px;
   height: 508px;
-  margin: 0 auto;
 
   /* Correct order: image → overlay gradient → fallback color */
   background:

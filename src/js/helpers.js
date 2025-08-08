@@ -4,6 +4,7 @@
 
 import Raty from 'raty-js';
 import { refs } from './refs';
+import { handleLoadMore } from './handlers';
 
 export function createGalleryThumbsMarkup(images) {
     return images
@@ -53,8 +54,10 @@ export function hideLoader() {
 
 export function showLoadMore() {
     refs.loadMoreBtn.classList.remove("visually-hidden");
+    refs.loadMoreBtn.addEventListener("click", handleLoadMore);
 }
 
 export function hideLoadMore() {
     refs.loadMoreBtn.classList.add("visually-hidden");
+    refs.loadMoreBtn.removeEventListener("click", handleLoadMore);
 }

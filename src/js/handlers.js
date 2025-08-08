@@ -20,8 +20,6 @@ export let allLaodProduct = [];
 
 export async function initHomePage() {
 
-    refs.loadMoreBtn.addEventListener("click", handleLoadMore);
-
     getCategoriesByQuery().then(data => {
         renderCategories(data);
     })
@@ -51,7 +49,7 @@ export async function initHomePage() {
     }
 }
 
-async function handleLoadMore(event) {
+export async function handleLoadMore(event) {
     hideLoadMore();
     showLoader();
     page++;
@@ -67,7 +65,6 @@ async function handleLoadMore(event) {
             totalCounter -= response.furnitures.length
             if (!totalCounter) {
                 hideLoadMore();
-                refs.loadMoreBtn.removeEventListener("click", handleLoadMore);
             }
 
         } catch (error) {
@@ -132,7 +129,6 @@ export async function handleClick(event) {
                 showLoadMore();
                 if (!totalCounter) {
                     hideLoadMore();
-                    refs.loadMoreBtn.removeEventListener("click", handleLoadMore);
                 }
             } catch (error) {
                 iziToastError(error.message);

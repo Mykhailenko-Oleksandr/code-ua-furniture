@@ -3,11 +3,13 @@
  */
 
 
-import { initHomePage } from "./js/handlers";
+import { handleClick, initHomePage } from "./js/handlers";
 import { refs } from "./js/refs";
 import { openProductModal } from "./js/modal-product";
 
 document.addEventListener('DOMContentLoaded', initHomePage);
+
+refs.categories.addEventListener("click", handleClick);
 
 // у футері.хтмл поставила кнопку тест бтн
 // Тестовая кнопка

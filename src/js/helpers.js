@@ -2,6 +2,7 @@
  * У файлі helpers.js зберігай допоміжні функції, які знадобляться для реалізації завдання
  */
 import Raty from 'raty-js';
+import { refs } from './refs';
 
 export function createGalleryThumbsMarkup(images) {
     return images
@@ -39,4 +40,20 @@ export function ratyRenderStar(starContainer) {
     });
 
     raty.init();
+}
+
+export function showLoader() {
+    refs.loader.classList.remove("visually-hidden");
+}
+
+export function hideLoader() {
+    refs.loader.classList.add("visually-hidden");
+}
+
+export function showLoadMore() {
+    refs.loadMoreBtn.classList.remove("visually-hidden");
+}
+
+export function hideLoadMore() {
+    refs.loadMoreBtn.classList.add("visually-hidden");
 }

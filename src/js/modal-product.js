@@ -20,8 +20,6 @@ export async function openProductModal(productId) {
   refs.modalProduct.classList.add('is-open');
   refs.body.classList.add('no-scroll');
 
-  // const modalOrderBtn = document.querySelector('.modal-order-btn');
-
   modalCloseBtn = refs.modalProduct.querySelector('.modal-close-btn');
   modalOrderBtn = refs.modalProduct.querySelector('.modal-order-btn');
 

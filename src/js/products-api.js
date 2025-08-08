@@ -3,8 +3,8 @@
  */
 
 import axios from 'axios';
-import { API_BASE_URL, API_ENDPOINTS } from './constants';
 import { iziToastError } from './izi-toast';
+import { API_BASE_URL, API_ENDPOINTS } from './constants';
 
 axios.defaults.baseURL = API_BASE_URL;
 
@@ -20,3 +20,13 @@ export async function fetchProductDetails(id) {
         return null;
     }
 }
+
+export async function getFeedback() {
+    const results = await axios(`${API_ENDPOINTS.FEEDBACKS}`, {
+        params: {
+            limit: 10
+        }
+    });
+    return results.data.feedbacks;
+}
+

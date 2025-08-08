@@ -1,7 +1,13 @@
 /**
  * У файлі main.js логіка сторінки Index (index.html)
  */
+
+
+import { initHomePage } from "./js/handlers";
+import { refs } from "./js/refs";
 import { openProductModal } from "./js/modal-product";
+
+document.addEventListener('DOMContentLoaded', initHomePage);
 
 // у футері.хтмл поставила кнопку тест бтн
 // Тестовая кнопка

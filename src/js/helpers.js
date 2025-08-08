@@ -5,6 +5,7 @@
 import Raty from 'raty-js';
 import { refs } from './refs';
 import { handleLoadMore } from './handlers';
+import { localStorageThemeToggle } from './local-storage';
 
 export function createGalleryThumbsMarkup(images) {
     return images
@@ -30,18 +31,31 @@ export function createColorsMarkup(colors) {
 export function ratyRenderStar(starContainer) {
     const score = Number(starContainer.dataset.score);
 
-    const raty = new Raty(starContainer, {
-        number: 5,
-        score: score,
-        readOnly: true,
-        halfShow: true,
-        path: './img/stars/',
-        starOn: 'star-on.svg',
-        starOff: 'star-off.svg',
-        starHalf: 'star-half.svg'
-    });
-
-    raty.init();
+    if (refs.body.classList.contains('theme-dark')) {
+        const raty = new Raty(starContainer, {
+            number: 5,
+            score: score,
+            readOnly: true,
+            halfShow: true,
+            path: './img/stars/',
+            starOn: 'star-on-white.svg',
+            starOff: 'star-off-white.svg',
+            starHalf: 'star-half-white.svg'
+        });
+        raty.init();
+    } else {
+        const raty = new Raty(starContainer, {
+            number: 5,
+            score: score,
+            readOnly: true,
+            halfShow: true,
+            path: './img/stars/',
+            starOn: 'star-on.svg',
+            starOff: 'star-off.svg',
+            starHalf: 'star-half.svg'
+        });
+        raty.init();
+    }
 }
 
 export function showLoader() {
@@ -60,4 +74,19 @@ export function showLoadMore() {
 export function hideLoadMore() {
     refs.loadMoreBtn.classList.add("visually-hidden");
     refs.loadMoreBtn.removeEventListener("click", handleLoadMore);
+}
+
+export function ontTemeToggleClick() {
+    if (refs.body.classList.contains('theme-dark')) {
+        refs.body.classList.remove('theme-dark');
+        refs.themeToggle.innerHTML = `
+        <img src="./img/moon.png" alt="moon" />
+        `;
+    } else {
+        refs.body.classList.add('theme-dark');
+        refs.themeToggle.innerHTML = `
+        <img src="./img/sun.png" alt="sun" />
+        `;
+    }
+    localStorageThemeToggle();
 }

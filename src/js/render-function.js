@@ -2,8 +2,6 @@
  * У файлі render-functions.js зберігай функції для відображення елементів інтерфейсу
  */
 
-import Raty from 'raty-js';
-
 import { refs } from "./refs";
 import { createColorsMarkup, createGalleryThumbsMarkup, ratyRenderStar } from "./helpers";
 
@@ -76,21 +74,7 @@ export function renderFeedback(feedbacks) {
 
   feedbacks.forEach((_, index) => {
     const starContainer = document.getElementById(`stars-${index}`);
-
-    const score = Number(starContainer.dataset.score);
-
-    const raty = new Raty(starContainer, {
-      number: 5,
-      score: score,
-      readOnly: true,
-      halfShow: true,
-      path: './img/stars/',
-      starOn: 'star-on.svg',
-      starOff: 'star-off.svg',
-      starHalf: 'star-half.svg'
-    });
-
-    raty.init();
+    ratyRenderStar(starContainer);
   });
 }
 

@@ -4,6 +4,7 @@
 
 export const refs = {
     body: document.querySelector('body'),
+    themeToggle: document.querySelector('#theme-toggle'),
     modalProduct: document.querySelector('.modal-product'),
     modalDetailsContent: document.querySelector('.modal-details-content'),
     swiperWrapper: document.querySelector('.swiper-wrapper'),

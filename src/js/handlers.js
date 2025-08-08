@@ -12,6 +12,7 @@ import { getAllItemsByQuery, getCategoriesByQuery, getItemsByQuery, getFeedback 
 import { clearFurnitureList, renderCategories, renderFurnitureList, renderFeedback } from "./render-function";
 import { hideLoader, hideLoadMore, showLoader, showLoadMore } from "./helpers";
 import { openProductModal } from './modal-product';
+import { deployThemeToggle } from './local-storage';
 
 let query = "";
 let page = 1;
@@ -19,6 +20,7 @@ let totalCounter;
 export let allLaodProduct = [];
 
 export async function initHomePage() {
+    deployThemeToggle();
 
     getCategoriesByQuery().then(data => {
         renderCategories(data);

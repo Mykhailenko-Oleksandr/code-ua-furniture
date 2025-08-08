@@ -5,7 +5,7 @@
 
 import { handleClick, initHomePage } from "./js/handlers";
 import { refs } from "./js/refs";
-import { openProductModal } from "./js/modal-product.js";
+import { openProductModal } from "./js/modal-product";
 
 document.addEventListener('DOMContentLoaded', initHomePage);
 

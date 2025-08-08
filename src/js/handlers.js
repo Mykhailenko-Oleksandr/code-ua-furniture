@@ -25,9 +25,9 @@ export async function initHomePage() {
     })
 
     getAllItemsByQuery(page).then(data => {
-        totalCounter = data.totalItems - data.furnitures.length
+        totalCounter = data.totalItems - data.furnitures.length;
 
-        renderFurnitureList(data.furnitures)
+        renderFurnitureList(data.furnitures);
         hideLoader();
         showLoadMore();
     })

@@ -1,6 +1,7 @@
 /**
  * У файлі helpers.js зберігай допоміжні функції, які знадобляться для реалізації завдання
  */
+
 import Raty from 'raty-js';
 import { refs } from './refs';
 

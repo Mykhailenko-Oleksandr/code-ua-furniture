@@ -46,12 +46,12 @@ export async function getAllItemsByQuery(page) {
 }
 
 export async function getItemsByQuery(category, page) {
-    const response = await axios.get('https://furniture-store.b.goit.study/api/furnitures', {
+    const response = await axios.get(`${API_ENDPOINTS.FURNITURES}`, {
         params: {
             category,
             page,
-            limit: 8
+            limit: `${ITEMS_PER_PAGE}`
         }
     })
-    return response.data
+    return response.data;
 }

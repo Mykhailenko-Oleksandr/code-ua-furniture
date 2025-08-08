@@ -1,5 +1,3 @@
-import { refs } from "./refs";
-
 import Swiper from 'swiper/bundle';
 
 const mobileQuery = window.matchMedia('(max-width: 767px)');

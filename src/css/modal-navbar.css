@@ -9,7 +9,6 @@
   align-items: center;
   z-index: 9999;
   opacity: 0;
-  visibility: hidden;
   pointer-events: none;
   transition: visibility 250ms cubic-bezier(0.4, 0, 0.2, 1),
     opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -18,7 +17,7 @@
 .modal-navbar.navbar-is-open {
   pointer-events: unset;
   opacity: 1;
-  visibility: visible;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mobile-menu {
@@ -30,8 +29,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 18px;
-  margin-bottom: 32px;
+  padding-top: 19px;
+  padding-bottom: 16px;
 }
 
 .mobile-logo {
@@ -65,6 +64,13 @@
   flex-direction: column;
   gap: 32px;
   align-items: center;
+  padding-top: 32px;
+  transform: translateX(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-navbar.navbar-is-open .mob-menu-wrapper {
+  transform: translateX(0);
 }
 
 .mobile-link {
@@ -115,10 +121,30 @@
 @media only screen and (min-width: 768px) {
   .modal-navbar {
     right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .modal-navbar .container {
+    padding: 0;
+  }
+
+  .mobile-menu {
+    align-items: flex-end;
+  }
+
+  .mobile-menu-top {
+    background-color: #ffffff;
+    padding-left: 32px;
+    padding-right: 32px;
+    width: 100%;
   }
 
   .mob-menu-wrapper {
     align-items: flex-end;
+    background-color: #ffffff;
+    padding-right: 32px;
+    padding-bottom: 24px;
+    width: 298px;
   }
 
   .mobile-buy-btn {

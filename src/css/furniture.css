@@ -105,6 +105,22 @@
 .furniture-item-img {
   border-radius: 8px;
   margin-bottom: 16px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.furniture-list-item {
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.furniture-list-item:hover,
+.furniture-list-item:focus {
+  transform: scale(1.02);
+  .furniture-item-img {
+    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 1);
+    -webkit-box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 1);
+    outline: 1px solid black;
+  }
 }
 
 .furniture-item-name {
@@ -225,6 +241,60 @@ span[style*='color: #FFFFFF;'] {
   background-image: url('../img/categories/decor-and-accessories.jpg');
 }
 
+@media screen and (min-resolution: 2x) {
+  .all-category {
+    background-image: url('../img/categories/all-goods@2x.jpg');
+  }
+
+  .soft-category {
+    background-image: url('../img/categories/upholstered-furniture@2x.jpg');
+  }
+
+  .storage-category {
+    background-image: url('../img/categories/cabinets-and-storage-systems@2x.jpg');
+  }
+
+  .beds-category {
+    background-image: url('../img/categories/beds-and-mattresses@2x.jpg');
+  }
+
+  .tabels-category {
+    background-image: url('../img/categories/tables@2x.jpg');
+  }
+
+  .chairs-category {
+    background-image: url('../img/categories/chairs-and-stools@2x.jpg');
+  }
+
+  .kitchens-category {
+    background-image: url('../img/categories/kitchens@2x.jpg');
+  }
+
+  .nursery-category {
+    background-image: url('../img/categories/furniture-for-the-nursery@2x.jpg');
+  }
+
+  .office-category {
+    background-image: url('../img/categories/office-furniture@2x.jpg');
+  }
+
+  .hallway-category {
+    background-image: url('../img/categories/hallway-furniture@2x.jpg');
+  }
+
+  .bathroom-category {
+    background-image: url('../img/categories/bathroom-furniture@2x.jpg');
+  }
+
+  .garden-category {
+    background-image: url('../img/categories/garden-and-outdoor-furniture@2x.jpg');
+  }
+
+  .decor-category {
+    background-image: url('../img/categories/decor-and-accessories@2x.jpg');
+  }
+}
+
 @media screen and (min-width: 768px) {
   .section-title {
     font-size: 48px;
@@ -254,6 +324,7 @@ span[style*='color: #FFFFFF;'] {
 
   .furniture-item-name {
     font-size: 18px;
+    min-height: 58px;
   }
 
   .furniture-item-price {
@@ -272,6 +343,10 @@ span[style*='color: #FFFFFF;'] {
 
   .furniture-list {
     gap: 40px 24px;
+  }
+
+  .furniture-item-name {
+    min-height: 58px;
   }
 
   .furniture-list-item {

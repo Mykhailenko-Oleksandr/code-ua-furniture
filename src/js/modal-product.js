@@ -1,18 +1,15 @@
 import { refs } from './refs';
-import { fetchProductDetails } from './products-api';
 import { renderProductDetailsMarkup } from './render-function';
 import { iziToastError } from './izi-toast';
+import { allLaodProduct } from './handlers';
 
 let activeProductId = null;
 let modalCloseBtn = null;
 let modalOrderBtn = null;
 
 // --- ФУНКЦІЯ ВІДКРИТТЯ ВІКНА ---
-export async function openProductModal(productId) {
-  const product = await fetchProductDetails(productId);
-  if (!product) {
-    return;
-  }
+export function openProductModal(productId) {
+  const product = allLaodProduct.find(item => item._id === productId);
 
   activeProductId = productId;
   renderProductDetailsMarkup(product);

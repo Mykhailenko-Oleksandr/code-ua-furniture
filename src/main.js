@@ -13,15 +13,3 @@ document.addEventListener('DOMContentLoaded', initHomePage);
 refs.openMenuBtn.addEventListener('click', openModalNavbar);
 refs.categories.addEventListener("click", handleClick);
 
-
-
-// у футері.хтмл поставила кнопку тест бтн
-// Тестовая кнопка
-const testBtn = document.querySelector('#test-modal-btn');
-const tempProductId = '682f9bbf8acbdf505592ac36';
-
-if (testBtn) {
-    testBtn.addEventListener('click', () => {
-        openProductModal(tempProductId);
-    });
-}

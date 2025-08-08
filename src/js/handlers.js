@@ -11,10 +11,12 @@ import { refs } from "./refs";
 import { getAllItemsByQuery, getCategoriesByQuery, getItemsByQuery, getFeedback } from "./products-api";
 import { clearFurnitureList, renderCategories, renderFurnitureList, renderFeedback } from "./render-function";
 import { hideLoader, hideLoadMore, showLoader, showLoadMore } from "./helpers";
+import { openProductModal } from './modal-product';
 
 let query = "";
 let page = 1;
 let totalCounter;
+export let allLaodProduct = [];
 
 export async function initHomePage() {
 
@@ -27,19 +29,18 @@ export async function initHomePage() {
     getAllItemsByQuery(page).then(data => {
         totalCounter = data.totalItems - data.furnitures.length;
 
+        allLaodProduct.push(...data.furnitures);
+
         renderFurnitureList(data.furnitures);
+        refs.furnitureList.addEventListener('click', onBtnDetalsProduct);
         hideLoader();
         showLoadMore();
     })
-
 
     new Accordion('.accordion-container', {
         duration: 400,
         showMultiple: false,
     });
-
-
-
 
     try {
         const feedbacks = await getFeedback();
@@ -58,7 +59,9 @@ async function handleLoadMore(event) {
     if (refs.allCategoriesBtn.classList.contains("accent")) {
         try {
             const response = await getAllItemsByQuery(page);
+            allLaodProduct.push(...response.furnitures);
             renderFurnitureList(response.furnitures);
+            refs.furnitureList.addEventListener('click', onBtnDetalsProduct);
             hideLoader();
             showLoadMore();
             totalCounter -= response.furnitures.length
@@ -72,7 +75,9 @@ async function handleLoadMore(event) {
     } else {
         try {
             const response = await getItemsByQuery(query, page);
+            allLaodProduct.push(...response.furnitures);
             renderFurnitureList(response.furnitures);
+            refs.furnitureList.addEventListener('click', onBtnDetalsProduct);
             hideLoader();
             showLoadMore();
             totalCounter -= response.furnitures.length
@@ -89,6 +94,7 @@ async function handleLoadMore(event) {
 export async function handleClick(event) {
     event.preventDefault();
     clearFurnitureList();
+    allLaodProduct = [];
     page = 1;
     showLoader();
     hideLoadMore();
@@ -104,7 +110,9 @@ export async function handleClick(event) {
             try {
                 const response = await getAllItemsByQuery(page);
                 totalCounter = response.totalItems - response.furnitures.length;
+                allLaodProduct.push(...response.furnitures);
                 renderFurnitureList(response.furnitures);
+                refs.furnitureList.addEventListener('click', onBtnDetalsProduct);
                 hideLoader();
                 showLoadMore();
             } catch (error) {
@@ -116,7 +124,9 @@ export async function handleClick(event) {
             try {
                 const response = await getItemsByQuery(event.target.id, page);
                 totalCounter = response.totalItems - response.furnitures.length;
+                allLaodProduct.push(...response.furnitures);
                 renderFurnitureList(response.furnitures);
+                refs.furnitureList.addEventListener('click', onBtnDetalsProduct);
                 hideLoader();
                 showLoadMore();
                 if (!totalCounter) {
@@ -129,3 +139,11 @@ export async function handleClick(event) {
     }
 }
 
+function onBtnDetalsProduct(event) {
+
+    if (!event.target.classList.contains('furniture-details-btn')) {
+        return;
+    }
+    const idProduct = event.target.id;
+    openProductModal(idProduct);
+}

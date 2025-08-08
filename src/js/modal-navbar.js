@@ -6,6 +6,7 @@ export function openModalNavbar() {
     refs.mobileMenu.classList.add('navbar-is-open');
     refs.closeMenuBtn.addEventListener('click', closeModalNavbar);
     document.addEventListener('keydown', pressEscape);
+    refs.mobileMenu.addEventListener('click', onBackdropClick)
 
     refs.navLinks.forEach(link => {
         link.addEventListener('click', closeModalNavbar);
@@ -26,8 +27,14 @@ function closeModalNavbar() {
     document.body.classList.remove('no-scroll');
 };
 
-function pressEscape(e) {
-    if (e.key === 'Escape' && refs.mobileMenu.classList.contains('navbar-is-open')) {
+function pressEscape(event) {
+    if (event.key === 'Escape' && refs.mobileMenu.classList.contains('navbar-is-open')) {
+        closeModalNavbar();
+    }
+}
+
+function onBackdropClick(event) {
+    if (event.target.classList.contains('mobile-menu')) {
         closeModalNavbar();
     }
 }

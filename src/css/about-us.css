@@ -1,1 +1,61 @@
 /* Класи для секції about-us */
+
+.about-us {
+  background-color: #f0e6e6;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.about-us-text-box {
+  margin-bottom: 24px;
+}
+
+.about-us-title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+
+  margin-bottom: 24px;
+}
+
+.about-us-text {
+  font-size: 16px;
+}
+
+.about-us-picture img {
+  border-radius: 8px;
+}
+
+@media only screen and (min-width: 768px) {
+  .about-us {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .about-us-title {
+    font-size: 48px;
+  }
+
+  .about-us-text {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .about-us {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .about-us .container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .about-us-text-box {
+    margin-bottom: unset;
+    max-width: 640px;
+  }
+}

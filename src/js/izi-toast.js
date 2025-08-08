@@ -13,10 +13,10 @@ export function iziToastError(message) {
         messageColor: '#fff',
         messageSize: '16',
         messageLineHeight: '24',
-        backgroundColor: '#ef4040',
+        backgroundColor: '#6b0609',
         iconUrl: iconError,
         position: 'topRight',
-        progressBarColor: '#b51b1b',
+        progressBarColor: '#420406ff',
         theme: 'dark',
     });
 }

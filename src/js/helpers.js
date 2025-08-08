@@ -1,6 +1,7 @@
 /**
  * У файлі helpers.js зберігай допоміжні функції, які знадобляться для реалізації завдання
  */
+import Raty from 'raty-js';
 
 export function createGalleryThumbsMarkup(images) {
     return images
@@ -21,4 +22,21 @@ export function createColorsMarkup(colors) {
         <label for="color-${index}" class="modal-color-label" style="background-color: ${color};"></label>
       </li>
     ` }).join('');
+}
+
+export function ratyRenderStar(starContainer) {
+    const score = Number(starContainer.dataset.score);
+
+    const raty = new Raty(starContainer, {
+        number: 5,
+        score: score,
+        readOnly: true,
+        halfShow: true,
+        path: './img/stars/',
+        starOn: 'star-on.svg',
+        starOff: 'star-off.svg',
+        starHalf: 'star-half.svg'
+    });
+
+    raty.init();
 }

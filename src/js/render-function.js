@@ -1,22 +1,19 @@
 /**
  * У файлі render-functions.js зберігай функції для відображення елементів інтерфейсу
  */
-import Raty from 'raty-js';
 
-import { createColorsMarkup, createGalleryThumbsMarkup } from "./helpers";
+import { createColorsMarkup, createGalleryThumbsMarkup, ratyRenderStar } from "./helpers";
 import { refs } from "./refs";
 
 // --- ФУНКЦІЯ ДЛЯ ГЕНЕРАЦІЇ HTML-РОЗМІТКИ ТОВАРУ ---
 export function renderProductDetailsMarkup(product) {
-    console.log(product);
-
-    const mainImage = product.images[0];
-    const galleryThumbs =
-        product.images.length > 1 ? createGalleryThumbsMarkup(product.images) : '';
-    const markup = `
+  const mainImage = product.images[0];
+  const galleryThumbs =
+    product.images.length > 1 ? createGalleryThumbsMarkup(product.images) : '';
+  const markup = `
       <div class="modal-gallery">
           <img class="modal-main-image" src="${mainImage}" alt="${product.name
-        }">
+    }">
         
         <div class="modal-gallery-thumbs-list">
           ${galleryThumbs}
@@ -35,7 +32,7 @@ export function renderProductDetailsMarkup(product) {
         </div>
 
         <div class="modal-colors-wrap">
-          <p class="modal-colors-label">Доступні кольори:</p>
+          <p class="modal-colors-label">Колір</p>
           <ul class="modal-colors-list">
             ${createColorsMarkup(product.color)}
           </ul>
@@ -45,33 +42,21 @@ export function renderProductDetailsMarkup(product) {
           <p class="modal-product-description">${product.description}</p>
           <ul class="modal-dimensions-list">
             <li class="modal-dimension-item">Розміри: <span class="modal-product-dimensions">${product.sizes
-        }</span></li>
+    }</span></li>
           </ul>
         </div>
-      </div>
+    <div class="btn-wrapper">
+      <button type="button" class="modal-order-btn">
+        Перейти до замовлення
+      </button>
+    </div>
+    </div>
   `;
 
-    refs.modalDetailsContent.innerHTML = markup;
+  refs.modalDetailsContent.innerHTML = markup;
 
-
-
-
-    const starContainer = document.querySelector(`.product-rating`);
-
-    const score = Number(starContainer.dataset.score);
-
-    const raty = new Raty(starContainer, {
-        number: 5,
-        score: score,
-        readOnly: true,
-        halfShow: true,
-        path: './img/stars/',
-        starOn: 'star-on.svg',
-        starOff: 'star-off.svg',
-        starHalf: 'star-half.svg'
-    });
-
-    raty.init();
+  const starContainer = document.querySelector(`.product-rating`);
+  ratyRenderStar(starContainer);
 }
 
 

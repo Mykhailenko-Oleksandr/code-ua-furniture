@@ -4,7 +4,6 @@
 
 import axios from 'axios';
 import { API_BASE_URL, API_ENDPOINTS } from './constants';
-import iziToast from 'izitoast';
 import { iziToastError } from './izi-toast';
 
 axios.defaults.baseURL = API_BASE_URL;

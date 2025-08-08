@@ -29,23 +29,23 @@
 
   overflow-y: auto;
   position: relative;
-  padding: 64px 20px 44px 20px;
+  padding: 16px 20px 44px 20px;
+}
+
+.modal-close-btn-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
 }
 
 .modal-close-btn {
   width: 32px;
   height: 32px;
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  fill: black;
   border: none;
   background-color: transparent;
 }
 
-.btn-wrapper {
-  display: flex;
-  justify-content: center;
+.modal-close-icon {
 }
 
 .modal-details-content {
@@ -87,12 +87,29 @@
 }
 
 .modal-price-rating-wrap {
+  margin-bottom: 24px;
+}
+
+.modal-product-price {
+  display: block;
   font-weight: 700;
   font-size: 24px;
   line-height: 1.4;
   letter-spacing: 0.01em;
 
   margin-bottom: 24px;
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  max-height: 15px;
+
+  & img,
+  & input {
+    width: 15px;
+    height: 15px;
+  }
 }
 
 .modal-colors-label {
@@ -138,9 +155,15 @@
   margin-bottom: 24px;
 }
 
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .modal-order-btn {
   font-weight: 500;
   font-size: 16px;
+  line-height: 1.6;
   color: #fff;
   border-radius: 100px;
   padding-top: 10px;
@@ -152,4 +175,52 @@
     inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
     inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
   border: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .modal-product .container {
+    max-width: 704px;
+    padding: 16px 32px 75px 32px;
+  }
+
+  .modal-product-name {
+    font-size: 40px;
+  }
+
+  .modal-product-price {
+    font-size: 32px;
+  }
+
+  .btn-wrapper {
+    display: flex;
+    justify-content: start;
+  }
+
+  .modal-order-btn {
+    width: 310px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .modal-product .container {
+    max-width: 1090px;
+    padding: 16px 64px 48px 64px;
+  }
+
+  .modal-details-content {
+    display: flex;
+    gap: 24px;
+  }
+
+  .modal-details-info {
+    max-width: 358px;
+  }
+
+  .modal-gallery {
+    width: 580px;
+  }
+
+  .modal-product .container {
+    height: unset;
+  }
 }

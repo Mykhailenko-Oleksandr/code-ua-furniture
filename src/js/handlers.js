@@ -2,8 +2,11 @@
  * У файлі handlers.js зберігай хендлери, які передаються в addEventListener.
  */
 
+import Accordion from 'accordion-js';
+import 'accordion-js/dist/accordion.min.css';
 import { iziToastError } from "./izi-toast";
 import { swiper } from "./swiper";
+
 import { refs } from "./refs";
 import { getAllItemsByQuery, getCategoriesByQuery, getItemsByQuery, getFeedback } from "./products-api";
 import { clearFurnitureList, renderCategories, renderFurnitureList, renderFeedback } from "./render-function";
@@ -28,6 +31,13 @@ export async function initHomePage() {
         hideLoader();
         showLoadMore();
     })
+
+
+    new Accordion('.accordion-container', {
+        duration: 400,
+        showMultiple: false,
+    });
+
 
 
 

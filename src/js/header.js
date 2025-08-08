@@ -1,25 +1,33 @@
-
-const openMenuBtn = document.querySelector('.header-burger-menu');
-const closeMenuBtn = document.querySelector('.modal-close-btn');
-const mobileMenu = document.querySelector('.modal-navbar');
-const navLinks = document.querySelectorAll('.mobile-link, .mobile-buy-btn');
+// import { refs } from "./refs";
 
 
-const toggleModal = () => {
-  mobileMenu.classList.toggle('navbar-is-open'); 
-  document.body.classList.toggle('no-scroll');
-};
 
-openMenuBtn.addEventListener('click', toggleModal);
-closeMenuBtn.addEventListener('click', toggleModal);
+// export function openModalNavbar() {
+//   refs.mobileMenu.classList.add('navbar-is-open');
+//   refs.closeMenuBtn.addEventListener('click', closeModalNavbar);
+//   document.addEventListener('keydown', pressEscape);
 
+//   refs.navLinks.forEach(link => {
+//     link.addEventListener('click', closeModalNavbar);
+//   });
 
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && mobileMenu.classList.contains('navbar-is-open')) {
-    toggleModal();
-  }
-});
+//   document.body.classList.add('no-scroll');
+// };
 
-navLinks.forEach(link => {
-  link.addEventListener('click', toggleModal);
-});
+// function closeModalNavbar() {
+//   refs.mobileMenu.classList.remove('navbar-is-open');
+//   refs.closeMenuBtn.removeEventListener('click', closeModalNavbar);
+//   document.removeEventListener('keydown', pressEscape);
+
+//   refs.navLinks.forEach(link => {
+//     link.removeEventListener('click', closeModalNavbar);
+//   });
+
+//   document.body.classList.remove('no-scroll');
+// };
+
+// function pressEscape(e) {
+//   if (e.key === 'Escape' && refs.mobileMenu.classList.contains('navbar-is-open')) {
+//     closeModalNavbar();
+//   }
+// }

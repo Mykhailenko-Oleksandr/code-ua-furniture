@@ -9,12 +9,16 @@
   align-items: center;
   z-index: 9999;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: visibility 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-navbar.navbar-is-open {
+  pointer-events: unset;
   opacity: 1;
+  visibility: visible;
 }
 
 .mobile-menu {
@@ -45,17 +49,15 @@
   padding: 0;
   cursor: pointer;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  
-}
 
-.modal-close-btn:hover,
-.modal-close-btn:focus {
-  opacity: 0.5;
-}
+  &:hover,
+  &:focus {
+    opacity: 0.5;
+  }
 
-.close-icon {
-  width: 32px;
-  height: 32px;
+  &:active {
+    opacity: 0.6;
+  }
 }
 
 .mob-menu-wrapper {
@@ -70,11 +72,15 @@
   font-weight: 600;
   line-height: 1.5;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.mobile-link:hover,
-.mobile-link:focus {
-  opacity: 0.5;
+  &:hover,
+  &:focus {
+    opacity: 0.5;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
 }
 
 .mobile-buy-btn {
@@ -95,11 +101,15 @@
   border: transparent;
   cursor: pointer;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.mobile-buy-btn:hover,
-.mobile-buy-btn:focus {
-  opacity: 0.5;
+  &:hover,
+  &:focus {
+    opacity: 0.5;
+  }
+
+  &:active {
+    opacity: 1;
+  }
 }
 
 @media only screen and (min-width: 768px) {

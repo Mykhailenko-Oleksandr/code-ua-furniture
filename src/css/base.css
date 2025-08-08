@@ -11,6 +11,10 @@ section {
 }
 
 /* Базові стилі */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #fff;
 

@@ -6,10 +6,14 @@
 import { handleClick, initHomePage } from "./js/handlers";
 import { refs } from "./js/refs";
 import { openProductModal } from "./js/modal-product";
+import { openModalNavbar } from "./js/modal-navbar";
 
 document.addEventListener('DOMContentLoaded', initHomePage);
 
+refs.openMenuBtn.addEventListener('click', openModalNavbar);
 refs.categories.addEventListener("click", handleClick);
+
+
 
 // у футері.хтмл поставила кнопку тест бтн
 // Тестовая кнопка

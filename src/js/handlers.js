@@ -67,6 +67,7 @@ async function handleLoadMore(event) {
             totalCounter -= response.furnitures.length
             if (!totalCounter) {
                 hideLoadMore();
+                refs.loadMoreBtn.removeEventListener("click", handleLoadMore);
             }
 
         } catch (error) {
@@ -131,6 +132,7 @@ export async function handleClick(event) {
                 showLoadMore();
                 if (!totalCounter) {
                     hideLoadMore();
+                    refs.loadMoreBtn.removeEventListener("click", handleLoadMore);
                 }
             } catch (error) {
                 iziToastError(error.message);

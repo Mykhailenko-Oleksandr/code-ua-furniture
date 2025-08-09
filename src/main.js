@@ -1,9 +1,18 @@
-import Accordion from 'accordion-js';
-import 'accordion-js/dist/accordion.min.css';
 
-document.addEventListener('DOMContentLoaded', () => {
-  new Accordion('.accordion-container', {
-    duration: 300,
-    showMultiple: false,
-  });
-});
+/**
+ * У файлі main.js логіка сторінки Index (index.html)
+ */
+
+
+import { handleClick, initHomePage } from "./js/handlers";
+import { refs } from "./js/refs";
+import { openModalNavbar } from "./js/modal-navbar";
+import { ontTemeToggleClick } from "./js/helpers";
+
+document.addEventListener('DOMContentLoaded', initHomePage);
+
+refs.openMenuBtn.addEventListener('click', openModalNavbar);
+refs.categories.addEventListener("click", handleClick);
+
+
+refs.themeToggle.addEventListener('click', ontTemeToggleClick);

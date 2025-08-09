@@ -16,7 +16,6 @@
   font-size: 36px;
   line-height: 1.2;
   letter-spacing: 0.01em;
-  color: #080c09;
   margin-bottom: 32px;
 }
 
@@ -52,17 +51,17 @@
 
 .faq .faq-item + .faq-item {
   border-top: 1px solid #dcdcdc;
-  padding: 20px 0;
+  padding-top: 20px;
+  margin-bottom: 0;
 }
 
 .faq .faq-item:first-child {
   border-top: 1px solid #dcdcdc;
-  padding: 23px 0;
+  padding-top: 20px;
 }
 
 .faq .faq-item:last-child {
   border-bottom: 1px solid #dcdcdc;
-  padding: 23px 0;
 }
 
 .faq-item .faq-question.ac-trigger {
@@ -79,6 +78,7 @@
   cursor: pointer;
   padding-left: 0;
   padding-right: 56px;
+
   transition: padding-bottom 0.3s ease;
   word-break: break-word;
 }
@@ -138,8 +138,9 @@
   }
 
   .faq .faq-item + .faq-item {
-    padding: 22px 0;
+    padding-top: 22px;
   }
+
 
   .faq .faq-item:first-child,
   .faq .faq-item:last-child {
@@ -148,6 +149,7 @@
 
   .faq-item .faq-question.ac-trigger {
     font-size: 18px;
+
   }
 
   .faq-item .faq-question.ac-trigger[aria-expanded='true'] {

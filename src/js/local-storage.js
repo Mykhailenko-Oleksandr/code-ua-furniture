@@ -1,7 +1,7 @@
 import { refs } from "./refs";
 
-import iconSun from './img/sun.png';
-import iconMoon from './img/moon.png';
+import iconSun from '../img/sun.png';
+import iconMoon from '../img/moon.png';
 
 export function localStorageThemeToggle() {
     if (localStorage.getItem('theme')) {

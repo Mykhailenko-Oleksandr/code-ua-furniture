@@ -7,8 +7,8 @@ import { refs } from './refs';
 import { handleLoadMore } from './handlers';
 import { localStorageThemeToggle } from './local-storage';
 
-import iconSun from './img/sun.png';
-import iconMoon from './img/moon.png';
+import iconSun from '../img/sun.png';
+import iconMoon from '../img/moon.png';
 
 export function createGalleryThumbsMarkup(images) {
     return images

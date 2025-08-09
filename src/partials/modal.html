@@ -1,7 +1,4 @@
-<link rel="stylesheet" href="../css/modal-order.css" />
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
-
-<div class="modal-navbar">
+<!-- <class="modal-navbar">
   <div class="container">
     <div class="mobile-menu">
       <div class="mobile-menu-top">
@@ -9,16 +6,16 @@
           <svg class="logo-icon" width="159" height="35">
             <use href="./img/logo-header.svg"></use>
           </svg>
-        </a>
+        </a> -->
 
-<button class="modal-close-btn" type="button">
+<!-- <button class="modal-close-btn" type="button">
   <svg class="close-icon" width="32" height="32">
     <use href="./img/sprite.svg#icon-x"></use>
   </svg>
 </button>
-</div>
+</div> -->
 
-<nav class="mob-menu-nav">
+<!-- <nav class="mob-menu-nav">
   <ul class="mob-menu-wrapper">
     <li><a href="#furniture" class="mobile-link">Наші меблі</a></li>
     <li><a href="#about" class="mobile-link">Про нас</a></li>
@@ -29,30 +26,34 @@
     </li>
   </ul>
 </nav>
+</div>
+</div>
+</div> -->
 
-
+<link rel="stylesheet" href="./modal-order.css">
 <button id="openModalTestBtn">Відкрити модалку</button>
 
-
-<div class="modal-wrapper modal-overlay">
+<div class="modal-wrapper modal-overlay hidden">
   <div class="modal-order">
-    <button type="button" class="modal-close-btn modal-close" id="closeModalBtn">
-      <svg class="modal-close-icon" width="16" height="16">
-        <use href="./img/sprite.svg#icon-x"></use>
+    <button type="button" class="modal-close-btn modal-close" aria-label="Закрити">
+      <svg class="modal-close-icon" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+        <path
+          d="M21.589 8.459 16 14.047 10.411 8.459 8.526 10.344 14.114 15.932 8.526 21.52 10.411 23.405 16 17.817 21.589 23.405 23.474 21.52 17.886 15.932 23.474 10.344z" />
       </svg>
     </button>
 
     <h2 class="modal-title">Замовити зворотний зв'язок</h2>
 
-    <form class="modal-form">
+    <form class="modal-form" novalidate>
       <div class="modal-field">
         <div class="input-wrap">
-          <label for="name" class="modal-label">
-            <p>Ім’я*</p>
-            <input name="name" id="name" class="modal-input" placeholder="Ваше Ім’я" required />
+          <label for="email" class="modal-label">
+            <p>E-mail*</p>
+            <input type="text" name="email" id="email" class="modal-input" placeholder="Ваш e-mail" autocomplete="email"
+              required />
           </label>
-          <span class="text-valid">Success!</span>
-          <span class="text-invalid">Invalid name, try again</span>
+          <span class="text-valid">Дані введено вірно</span>
+          <span class="text-invalid">Некоректний e-mail, спробуйте знову</span>
         </div>
       </div>
 
@@ -62,8 +63,8 @@
             <p>Телефон*</p>
             <input name="phone" id="phone" type="tel" class="modal-input" placeholder="+380" required />
           </label>
-          <span class="text-valid">Success!</span>
-          <span class="text-invalid">Invalid phone number, try again</span>
+          <span class="text-valid">Дані введено вірно</span>
+          <span class="text-invalid">Некоректний номер, спробуйте знову</span>
         </div>
       </div>
 

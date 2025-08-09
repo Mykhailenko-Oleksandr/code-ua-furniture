@@ -5,6 +5,7 @@
 import { refs } from "./refs";
 import { createColorsMarkup, createGalleryThumbsMarkup, ratyRenderStar } from "./helpers";
 
+export let feedbacksVar;
 const categoriesList = [];
 
 // --- ФУНКЦІЯ ДЛЯ ГЕНЕРАЦІЇ HTML-РОЗМІТКИ ТОВАРУ ---
@@ -71,6 +72,7 @@ export function renderFeedback(feedbacks) {
  `).join("");
 
   refs.swiperWrapper.innerHTML = markup;
+  feedbacksVar = feedbacks;
 
   feedbacks.forEach((_, index) => {
     const starContainer = document.getElementById(`stars-${index}`);

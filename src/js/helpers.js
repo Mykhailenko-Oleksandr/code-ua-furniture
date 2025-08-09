@@ -9,6 +9,13 @@ import { localStorageThemeToggle } from './local-storage';
 
 import iconSun from '../img/sun.png';
 import iconMoon from '../img/moon.png';
+import starOn from '../img/stars/star-on.svg';
+import starOnWhite from '../img/stars/star-on-white.svg';
+import starHalf from '../img/stars/star-half.svg';
+import starHalfWhite from '../img/stars/star-half-white.svg';
+import starOff from '../img/stars/star-off.svg';
+import starOffWhite from '../img/stars/star-off-white.svg';
+import { feedbacksVar } from './render-function';
 
 export function createGalleryThumbsMarkup(images) {
     return images
@@ -40,10 +47,9 @@ export function ratyRenderStar(starContainer) {
             score: score,
             readOnly: true,
             halfShow: true,
-            path: './img/stars/',
-            starOn: 'star-on-white.svg',
-            starOff: 'star-off-white.svg',
-            starHalf: 'star-half-white.svg'
+            starOn: starOnWhite,
+            starOff: starOffWhite,
+            starHalf: starHalfWhite
         });
         raty.init();
     } else {
@@ -52,10 +58,9 @@ export function ratyRenderStar(starContainer) {
             score: score,
             readOnly: true,
             halfShow: true,
-            path: './img/stars/',
-            starOn: 'star-on.svg',
-            starOff: 'star-off.svg',
-            starHalf: 'star-half.svg'
+            starOn: starOn,
+            starOff: starOff,
+            starHalf: starHalf
         });
         raty.init();
     }
@@ -92,4 +97,10 @@ export function ontTemeToggleClick() {
         `;
     }
     localStorageThemeToggle();
+
+    feedbacksVar.forEach((_, index) => {
+        const starContainer = document.getElementById(`stars-${index}`);
+        starContainer.innerHTML = '';
+        ratyRenderStar(starContainer);
+    });
 }

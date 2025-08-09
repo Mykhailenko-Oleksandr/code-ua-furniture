@@ -40,32 +40,44 @@ export function createColorsMarkup(colors) {
 
 export function ratyRenderStar(starContainer) {
     const score = Number(starContainer.dataset.score);
+    const isDark = refs.body.classList.contains('theme-dark');
 
-    if (refs.body.classList.contains('theme-dark')) {
-        const raty = new Raty(starContainer, {
-            number: 5,
-            score: score,
-            readOnly: true,
-            halfShow: true,
-            path: '',
-            starOn: starOnWhite,
-            starOff: starOffWhite,
-            starHalf: starHalfWhite
-        });
-        raty.init();
-    } else {
-        const raty = new Raty(starContainer, {
-            number: 5,
-            score: score,
-            readOnly: true,
-            halfShow: true,
-            path: '',
-            starOn: starOn,
-            starOff: starOff,
-            starHalf: starHalf
-        });
-        raty.init();
-    }
+    new Raty(starContainer, {
+        number: 5,
+        score,
+        readOnly: true,
+        halfShow: true,
+        // без path
+        starOn: isDark ? starOnWhite : starOn,
+        starOff: isDark ? starOffWhite : starOff,
+        starHalf: isDark ? starHalfWhite : starHalf
+    }).init();
+
+    // if (refs.body.classList.contains('theme-dark')) {
+    //     const raty = new Raty(starContainer, {
+    //         number: 5,
+    //         score: score,
+    //         readOnly: true,
+    //         halfShow: true,
+    //         path: '',
+    //         starOn: starOnWhite,
+    //         starOff: starOffWhite,
+    //         starHalf: starHalfWhite
+    //     });
+    //     raty.init();
+    // } else {
+    //     const raty = new Raty(starContainer, {
+    //         number: 5,
+    //         score: score,
+    //         readOnly: true,
+    //         halfShow: true,
+    //         path: '',
+    //         starOn: starOn,
+    //         starOff: starOff,
+    //         starHalf: starHalf
+    //     });
+    //     raty.init();
+    // }
 }
 
 export function showLoader() {

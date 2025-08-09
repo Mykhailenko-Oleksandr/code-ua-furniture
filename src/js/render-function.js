@@ -151,3 +151,20 @@ export function renderFurnitureList(arr) {
 export function clearFurnitureList() {
   refs.furnitureList.innerHTML = "";
 }
+
+export function renderPopularProducts(arr) {
+  const markup = arr.map(({ images, name, price, _id, color, description }) => {
+    return `<div class="popular-list-item swiper-slide">
+        <img class="popular-item-img" src="${images[0]}" alt="${description}">
+        <h4 class="popular-item-name">${name}</h4>
+        <div class="popular-colors">
+        ${color.map(item => `<span class="item-color" style="background-color: ${item};"></span>`).join('')}
+        </div>
+        <p class="popular-item-price">${price} грн</p>
+        <button class="popular-details-btn" id="${_id}">Детальніше</button>
+        </div>`
+  }).join("");
+
+  refs.popularSwiperBox.innerHTML = markup;
+}
+

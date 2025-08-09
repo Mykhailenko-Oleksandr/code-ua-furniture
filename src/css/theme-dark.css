@@ -31,6 +31,7 @@ body.theme-dark {
   & .faq-item.ac.js-enabled,
   & .about-us,
   & .furniture-list-item,
+  & .popular-list-item,
   & .mobile-menu-top,
   & .header {
     background-image: linear-gradient(360deg, #1e1e1e, #111, #000);
@@ -44,13 +45,15 @@ body.theme-dark {
     fill: #ffffff;
   }
 
+  & .about-us,
   & .modal-product .container,
   & .modal-navbar,
   & .mob-menu-wrapper {
     background-color: #1e1e1e;
   }
 
-  & .furniture-details-btn {
+  & .furniture-details-btn,
+  & .popular-details-btn {
     background-color: #6b0609;
     color: #ffffff;
   }
@@ -64,6 +67,7 @@ body.theme-dark {
     color: #ffffff;
   }
 
+  & .swiper-pagination-bullet,
   & .theme-toggle-button,
   & .swiper-pagination-bullet-active {
     background-color: #fff;

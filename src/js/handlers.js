@@ -5,11 +5,11 @@
 import Accordion from 'accordion-js';
 import 'accordion-js/dist/accordion.min.css';
 import { iziToastError } from "./izi-toast";
-import { swiper } from "./swiper";
+import { swiperFeedback, swiperPoppular } from "./swiper";
 
 import { refs } from "./refs";
-import { getAllItemsByQuery, getCategoriesByQuery, getItemsByQuery, getFeedback } from "./products-api";
-import { clearFurnitureList, renderCategories, renderFurnitureList, renderFeedback } from "./render-function";
+import { getAllItemsByQuery, getCategoriesByQuery, getItemsByQuery, getFeedback, getPopulatProduct } from "./products-api";
+import { clearFurnitureList, renderCategories, renderFurnitureList, renderFeedback, renderPopularProducts } from "./render-function";
 import { hideLoader, hideLoadMore, showLoader, showLoadMore } from "./helpers";
 import { openProductModal } from './modal-product';
 import { deployThemeToggle } from './local-storage';
@@ -28,14 +28,27 @@ export async function initHomePage() {
 
     getAllItemsByQuery(page).then(data => {
         totalCounter = data.totalItems - data.furnitures.length;
-
         allLaodProduct.push(...data.furnitures);
-
         renderFurnitureList(data.furnitures);
         refs.furnitureList.addEventListener('click', onBtnDetalsProduct);
         hideLoader();
         showLoadMore();
     })
+
+    try {
+        const popularProducts = await getPopulatProduct();
+
+        allLaodProduct.push(...popularProducts.furnitures);
+
+        renderPopularProducts(popularProducts.furnitures);
+        swiperPoppular();
+        refs.popularSwiperBox.addEventListener('click', onBtnDetalsProduct);
+
+    } catch (error) {
+        iziToastError(error.message)
+    }
+
+
 
     new Accordion('.accordion-container', {
         duration: 300,
@@ -45,7 +58,7 @@ export async function initHomePage() {
     try {
         const feedbacks = await getFeedback();
         renderFeedback(feedbacks);
-        swiper();
+        swiperFeedback();
     } catch (error) {
         iziToastError(error.message)
     }
@@ -141,7 +154,8 @@ export async function handleClick(event) {
 
 function onBtnDetalsProduct(event) {
 
-    if (!event.target.classList.contains('furniture-details-btn')) {
+    if (!event.target.classList.contains('furniture-details-btn')
+        && !event.target.classList.contains('popular-details-btn')) {
         return;
     }
     const idProduct = event.target.id;

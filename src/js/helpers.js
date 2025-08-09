@@ -7,6 +7,9 @@ import { refs } from './refs';
 import { handleLoadMore } from './handlers';
 import { localStorageThemeToggle } from './local-storage';
 
+import iconSun from './img/sun.png';
+import iconMoon from './img/moon.png';
+
 export function createGalleryThumbsMarkup(images) {
     return images
         .slice(1)
@@ -80,12 +83,12 @@ export function ontTemeToggleClick() {
     if (refs.body.classList.contains('theme-dark')) {
         refs.body.classList.remove('theme-dark');
         refs.themeToggle.innerHTML = `
-        <img src="./img/moon.png" alt="moon" />
+        <img src="${iconMoon}" alt="moon" />
         `;
     } else {
         refs.body.classList.add('theme-dark');
         refs.themeToggle.innerHTML = `
-        <img src="./img/sun.png" alt="sun" />
+        <img src="${iconSun}" alt="sun" />
         `;
     }
     localStorageThemeToggle();

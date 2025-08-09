@@ -106,6 +106,9 @@ export async function handleLoadMore(event) {
 
 export async function handleClick(event) {
     event.preventDefault();
+    if (event.target === event.currentTarget) {
+        return
+    }
     clearFurnitureList();
     allLaodProduct = [];
     page = 1;

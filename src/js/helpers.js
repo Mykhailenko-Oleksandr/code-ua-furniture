@@ -6,6 +6,7 @@ import Raty from 'raty-js';
 import { refs } from './refs';
 import { handleLoadMore } from './handlers';
 import { localStorageThemeToggle } from './local-storage';
+import { feedbacksVar } from './render-function';
 
 import iconSun from '../img/sun.png';
 import iconMoon from '../img/moon.png';
@@ -15,7 +16,6 @@ import starHalf from '../img/stars/star-half.svg';
 import starHalfWhite from '../img/stars/star-half-white.svg';
 import starOff from '../img/stars/star-off.svg';
 import starOffWhite from '../img/stars/star-off-white.svg';
-import { feedbacksVar } from './render-function';
 
 export function createGalleryThumbsMarkup(images) {
     return images
@@ -47,37 +47,10 @@ export function ratyRenderStar(starContainer) {
         score,
         readOnly: true,
         halfShow: true,
-        // без path
         starOn: isDark ? starOnWhite : starOn,
         starOff: isDark ? starOffWhite : starOff,
         starHalf: isDark ? starHalfWhite : starHalf
     }).init();
-
-    // if (refs.body.classList.contains('theme-dark')) {
-    //     const raty = new Raty(starContainer, {
-    //         number: 5,
-    //         score: score,
-    //         readOnly: true,
-    //         halfShow: true,
-    //         path: '',
-    //         starOn: starOnWhite,
-    //         starOff: starOffWhite,
-    //         starHalf: starHalfWhite
-    //     });
-    //     raty.init();
-    // } else {
-    //     const raty = new Raty(starContainer, {
-    //         number: 5,
-    //         score: score,
-    //         readOnly: true,
-    //         halfShow: true,
-    //         path: '',
-    //         starOn: starOn,
-    //         starOff: starOff,
-    //         starHalf: starHalf
-    //     });
-    //     raty.init();
-    // }
 }
 
 export function showLoader() {

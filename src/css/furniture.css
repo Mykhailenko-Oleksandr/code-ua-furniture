@@ -239,7 +239,7 @@ span[style*='color: #FFFFFF;'] {
 
 @media screen and (min-resolution: 2x) {
   .all-category {
-    background-image: url('../img/categories/all-goods@2x.JPG');
+    background-image: url('../img/categories/all-goods@2x.jpg');
   }
 
   .soft-category {

@@ -38,7 +38,7 @@ export async function initHomePage() {
     })
 
     new Accordion('.accordion-container', {
-        duration: 400,
+        duration: 300,
         showMultiple: false,
     });
 

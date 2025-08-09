@@ -1,3 +1,4 @@
+
 /**
  * У файлі main.js логіка сторінки Index (index.html)
  */
@@ -15,6 +16,3 @@ refs.categories.addEventListener("click", handleClick);
 
 
 refs.themeToggle.addEventListener('click', ontTemeToggleClick);
-
-
-

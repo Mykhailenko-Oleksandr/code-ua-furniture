@@ -30,10 +30,12 @@ export function createColorsMarkup(colors) {
     return colors
         .map((color, index) => {
             const isChecked = index === 0 ? 'checked' : '';
+            const lowerColor = color.toLowerCase();
+            const grayClass = (lowerColor === '#838584' || lowerColor === '#808080') ? 'grey-color' : '';
             return `
       <li class="modal-color-item">
         <input type="radio" name="color" id="color-${index}" value="${color}" class="modal-color-input" ${isChecked}>
-        <label for="color-${index}" class="modal-color-label" style="background-color: ${color};"></label>
+        <label for="color-${index}" class="modal-color-label ${grayClass}" style="background-color: ${color};"></label>
       </li>
     ` }).join('');
 }

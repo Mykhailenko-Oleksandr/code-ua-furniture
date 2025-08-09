@@ -145,6 +145,11 @@
 
 .modal-color-input:checked + .modal-color-label {
   border: 4px solid #838584;
+  transform: scale(1.1);
+}
+
+.modal-color-input:checked + .modal-color-label.grey-color {
+  border: 4px solid #080c09;
 }
 
 .modal-product-description {

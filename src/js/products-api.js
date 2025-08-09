@@ -41,3 +41,13 @@ export async function getItemsByQuery(category, page) {
     })
     return response.data;
 }
+
+export async function getPopulatProduct() {
+    const response = await axios.get(`${API_ENDPOINTS.FURNITURES}`, {
+        params: {
+            type: 'popular',
+            limit: 15
+        }
+    })
+    return response.data;
+}

@@ -7,7 +7,7 @@ export const refs = {
     themeToggle: document.querySelector('#theme-toggle'),
     modalProduct: document.querySelector('.modal-product'),
     modalDetailsContent: document.querySelector('.modal-details-content'),
-    swiperWrapper: document.querySelector('.swiper-wrapper'),
+    swiperWrapper: document.querySelector('.feedback-swiper-box.swiper-wrapper'),
     // furniture
     categories: document.querySelector(".categories"),
     furnitureList: document.querySelector(".furniture-list"),
@@ -19,5 +19,8 @@ export const refs = {
     closeMenuBtn: document.querySelector('.modal-close-btn'),
     mobileMenu: document.querySelector('.modal-navbar'),
     navLinks: document.querySelectorAll('.mobile-link, .mobile-buy-btn'),
+    popularSwiperBox: document.querySelector('.popular-swiper-box.swiper-wrapper'),
+
+
 
 }

@@ -16,6 +16,8 @@ import starHalf from '../img/stars/star-half.svg';
 import starHalfWhite from '../img/stars/star-half-white.svg';
 import starOff from '../img/stars/star-off.svg';
 import starOffWhite from '../img/stars/star-off-white.svg';
+import { closeModalNavbar } from './modal-navbar';
+import { closeProductModal } from './modal-product';
 
 export function createGalleryThumbsMarkup(images) {
     return images
@@ -92,4 +94,26 @@ export function ontTemeToggleClick() {
         starContainer.innerHTML = '';
         ratyRenderStar(starContainer);
     });
+}
+
+export function onBackdropClick(event) {
+    if (event.target.classList.contains('mobile-menu') || event.target === refs.mobileMenu) {
+        closeModalNavbar();
+    }
+
+    if (event.target === refs.modalProduct) {
+        closeProductModal();
+    }
+}
+
+export function onEscapePress(event) {
+
+    if (event.key === 'Escape' && refs.modalProduct.classList.contains('is-open')) {
+        closeProductModal();
+    }
+
+    if (event.key === 'Escape' && refs.mobileMenu.classList.contains('navbar-is-open')) {
+        closeModalNavbar();
+    }
+
 }

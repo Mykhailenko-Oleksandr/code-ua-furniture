@@ -2,6 +2,7 @@ import { refs } from './refs';
 import { renderProductDetailsMarkup } from './render-function';
 import { iziToastError } from './izi-toast';
 import { allLaodProduct } from './handlers';
+import { onBackdropClick, onEscapePress } from './helpers';
 
 let activeProductId = null;
 let modalCloseBtn = null;
@@ -26,20 +27,8 @@ export function openProductModal(productId) {
   modalOrderBtn.addEventListener('click', onOrderBtnClick)
 }
 
-function onBackdropClick(event) {
-  if (event.target === refs.modalProduct) {
-    closeProductModal();
-  }
-}
-
-function onEscapePress(event) {
-  if (event.key === 'Escape' && refs.modalProduct.classList.contains('is-open')) {
-    closeProductModal();
-  }
-}
-
 // --- ФУНКЦІЯ ЗАКРИТТЯ ВІКНА ---
-function closeProductModal() {
+export function closeProductModal() {
   modalCloseBtn.removeEventListener('click', closeProductModal);
   refs.modalProduct.removeEventListener('click', onBackdropClick);
   document.removeEventListener('keydown', onEscapePress);

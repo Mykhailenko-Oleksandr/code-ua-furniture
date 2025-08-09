@@ -47,6 +47,7 @@ export function ratyRenderStar(starContainer) {
             score: score,
             readOnly: true,
             halfShow: true,
+            path: '',
             starOn: starOnWhite,
             starOff: starOffWhite,
             starHalf: starHalfWhite
@@ -58,6 +59,7 @@ export function ratyRenderStar(starContainer) {
             score: score,
             readOnly: true,
             halfShow: true,
+            path: '',
             starOn: starOn,
             starOff: starOff,
             starHalf: starHalf

@@ -8,7 +8,7 @@
     <script type="module" crossorigin src="/code-ua-furniture/index.js"></script>
     <link rel="modulepreload" crossorigin href="/code-ua-furniture/assets/vendor-Bwpr_ifn.js">
     <link rel="stylesheet" crossorigin href="/code-ua-furniture/assets/vendor-CvoZEexK.css">
-    <link rel="stylesheet" crossorigin href="/code-ua-furniture/assets/index-C2h1VBE4.css">
+    <link rel="stylesheet" crossorigin href="/code-ua-furniture/assets/index-Db1Q2m6d.css">
   </head>
   <body>
     <header class="header" id="header">
@@ -390,6 +390,89 @@
       </button>
     </div>
     <div class="modal-details-content"></div>
+  </div>
+</div>
+
+    <link rel="stylesheet" href="./modal-order.css" />
+<button id="openModalTestBtn">Відкрити модалку</button>
+
+<div class="modal-wrapper modal-overlay hidden">
+  <div class="modal-order">
+    <button
+      type="button"
+      class="modal-close-btn modal-close"
+      aria-label="Закрити"
+    >
+      <svg class="modal-close-icon" width="32" height="32">
+        <use href="/code-ua-furniture/assets/sprite-scpe_EgH.svg#icon-x"></use>
+      </svg>
+      <!-- <svg
+        class="modal-close-icon"
+        width="32"
+        height="32"
+        viewBox="0 0 32 32"
+        aria-hidden="true"
+      >
+        <path
+          d="M21.589 8.459 16 14.047 10.411 8.459 8.526 10.344 14.114 15.932 8.526 21.52 10.411 23.405 16 17.817 21.589 23.405 23.474 21.52 17.886 15.932 23.474 10.344z"
+        />
+      </svg> -->
+    </button>
+
+    <h2 class="modal-title">Замовити зворотний зв'язок</h2>
+
+    <form class="modal-form" novalidate>
+      <div class="modal-field">
+        <div class="input-wrap">
+          <label for="email" class="modal-label">
+            <p>E-mail*</p>
+            <input
+              type="text"
+              name="email"
+              id="email"
+              class="modal-input"
+              placeholder="Ваш e-mail"
+              autocomplete="email"
+              required
+            />
+          </label>
+          <span class="text-valid">Дані введено вірно</span>
+          <span class="text-invalid">Некоректний e-mail, спробуйте знову</span>
+        </div>
+      </div>
+
+      <div class="modal-field">
+        <div class="input-wrap">
+          <label for="phone" class="modal-label">
+            <p>Телефон*</p>
+            <input
+              name="phone"
+              id="phone"
+              type="tel"
+              class="modal-input"
+              placeholder="+380"
+              required
+            />
+          </label>
+          <span class="text-valid">Дані введено вірно</span>
+          <span class="text-invalid">Некоректний номер, спробуйте знову</span>
+        </div>
+      </div>
+
+      <div class="modal-comment-field">
+        <label for="comment" class="modal-comment-label">
+          <p>Коментар</p>
+          <textarea
+            name="comment"
+            id="comment"
+            class="modal-comment-input modal-comment-textarea"
+            placeholder="Введіть ваше повідомлення..."
+          ></textarea>
+        </label>
+      </div>
+
+      <button type="submit" class="modal-submit-btn">Надіслати заявку</button>
+    </form>
   </div>
 </div>
 

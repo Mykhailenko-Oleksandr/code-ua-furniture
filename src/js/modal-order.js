@@ -1,20 +1,17 @@
 
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import { refs } from './refs';
+import { postOrder } from './products-api';
 
 let furnitureId = null;
-let furnitureMarker = null;
-let closeTimer = null;
+let furnitureColor = null;
 
-export function openModal(id = null, marker = null) {
-  const overlay = document.querySelector('.modal-overlay');
+export function openModalOrder(id = null, color = null) {
+  furnitureId = id;
+  furnitureColor = color;
   const form = document.querySelector('.modal-form');
 
-  furnitureId = id;
-  furnitureMarker = marker;
-
-  overlay?.classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
 
   if (form && form.querySelector('.thank-you-message')) {
     form.innerHTML = `
@@ -48,10 +45,19 @@ export function openModal(id = null, marker = null) {
     `;
   }
 
-  form?.reset();
-
+  const closeBtn = document.querySelector('.modal-close');
   const phoneInput = document.getElementById('phone');
   const emailInput = document.getElementById('email');
+
+  refs.overlayOrderModal.classList.remove('hidden');
+  refs.body.style.overflow = 'hidden';
+
+  closeBtn?.addEventListener('click', closeModal);
+  refs.overlayOrderModal.addEventListener('click', onBackdropClick);
+  document.addEventListener('keydown', onEscapePress);
+
+  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+  const isValidPhone = (phone) => /^\+380\d{9}$/.test(phone);
 
   if (phoneInput) {
     phoneInput.value = '+380';
@@ -60,38 +66,6 @@ export function openModal(id = null, marker = null) {
   if (emailInput) {
     emailInput.classList.remove('is-invalid', 'is-valid');
   }
-}
-
-function closeModal() {
-  const overlay = document.querySelector('.modal-overlay');
-  const form = document.querySelector('.modal-form');
-  overlay?.classList.add('hidden');
-  document.body.style.overflow = '';
-  form?.reset();
-
-  if (closeTimer) {
-    clearTimeout(closeTimer);
-    closeTimer = null;
-  }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const overlay = document.querySelector('.modal-overlay');
-  const closeBtn = document.querySelector('.modal-close');
-  const testBtn = document.getElementById('openModalTestBtn');
-
-  testBtn?.addEventListener('click', () => openModal());
-
-  closeBtn?.addEventListener('click', closeModal);
-  overlay?.addEventListener('click', (e) => {
-    if (e.target.classList.contains('modal-overlay')) closeModal();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
-  });
-
-  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
-  const isValidPhone = (phone) => /^\+380\d{9}$/.test(phone);
 
   document.addEventListener('input', (e) => {
     const form = e.target.closest('.modal-form');
@@ -129,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  document.addEventListener('submit', async (e) => {
+  form.addEventListener('submit', async (e) => {
     const form = e.target;
     if (!form.classList.contains('modal-form')) {
       return;
@@ -165,13 +139,13 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    console.log('Заявка успішно відправлена. Дані:', {
+    postOrder({
       email,
       phone,
+      modelId: furnitureId,
+      color: furnitureColor,
       comment,
-      furnitureId,
-      furnitureMarker,
-    });
+    })
 
     form.innerHTML = `
       <div class="thank-you-message">
@@ -180,6 +154,30 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `;
 
-    closeTimer = setTimeout(closeModal, 5000);
+    setTimeout(closeModal, 5000);
   });
-});
+}
+
+function closeModal() {
+
+  const form = document.querySelector('.modal-form');
+
+  if (refs.overlayOrderModal.classList.contains('hidden')) {
+    return
+  }
+
+  console.log('ok');
+  refs.overlayOrderModal.classList.add('hidden');
+  refs.body.style.overflow = '';
+  form?.reset();
+}
+
+
+
+function onBackdropClick(e) {
+  if (e.target.classList.contains('modal-overlay')) closeModal();
+}
+
+function onEscapePress(e) {
+  if (e.key === 'Escape') closeModal();
+}

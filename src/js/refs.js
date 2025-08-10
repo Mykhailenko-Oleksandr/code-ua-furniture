@@ -7,6 +7,7 @@ export const refs = {
     themeToggle: document.querySelector('#theme-toggle'),
     modalProduct: document.querySelector('.modal-product'),
     modalDetailsContent: document.querySelector('.modal-details-content'),
+    overlayOrderModal: document.querySelector('.modal-overlay'),
     swiperWrapper: document.querySelector('.feedback-swiper-box.swiper-wrapper'),
     // furniture
     categories: document.querySelector(".categories"),

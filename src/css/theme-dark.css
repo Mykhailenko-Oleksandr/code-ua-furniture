@@ -46,6 +46,7 @@ body.theme-dark {
     fill: #ffffff;
   }
 
+  & .modal-order,
   & .about-us,
   & .modal-product .container,
   & .modal-navbar,
@@ -63,6 +64,11 @@ body.theme-dark {
     border-radius: 8px;
   }
 
+  & .modal-comment-textarea,
+  & .modal-input,
+  & .modal-label p,
+  & .modal-comment-label p,
+  & .modal-title,
   & .faq-answer.ac-panel,
   & .faq-item .faq-question.ac-trigger {
     color: #ffffff;
@@ -72,6 +78,15 @@ body.theme-dark {
   & .theme-toggle-button,
   & .swiper-pagination-bullet-active {
     background-color: #fff;
+  }
+
+  & .modal-input,
+  & .modal-comment-textarea {
+    border-color: #ffffff;
+  }
+
+  & .modal-input.is-invalid {
+    border-color: #6b0609;
   }
 }
 

@@ -13,6 +13,7 @@ import { clearFurnitureList, renderCategories, renderFurnitureList, renderFeedba
 import { hideLoader, hideLoadMore, showLoader, showLoadMore } from "./helpers";
 import { openProductModal } from './modal-product';
 import { deployThemeToggle } from './local-storage';
+import { openModalOrder } from './modal-order';
 
 let query = "";
 let page = 1;
@@ -62,6 +63,12 @@ export async function initHomePage() {
     } catch (error) {
         iziToastError(error.message)
     }
+    ///////////////////////////
+    const testBtn = document.getElementById('openModalTestBtn');
+    testBtn?.addEventListener('click', openModalOrder);
+
+
+
 }
 
 export async function handleLoadMore(event) {

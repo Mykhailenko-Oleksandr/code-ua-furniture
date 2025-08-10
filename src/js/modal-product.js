@@ -3,6 +3,7 @@ import { renderProductDetailsMarkup } from './render-function';
 import { iziToastError } from './izi-toast';
 import { allLaodProduct } from './handlers';
 import { onBackdropClick, onEscapePress } from './helpers';
+import { openModalOrder } from './modal-order';
 
 let activeProductId = null;
 let modalCloseBtn = null;
@@ -52,8 +53,9 @@ function onOrderBtnClick() {
     console.log(`Обрано товар з ID: ${activeProductId}`);
     console.log(`Обрано колір: ${selectedColor}`);
 
+
+    openModalOrder(activeProductId, selectedColor);
     closeProductModal();
-    // openOrderModal(); - фукнція відкриття модалки ордера
   } else {
     iziToastError('Будь ласка, оберіть колір')
   }

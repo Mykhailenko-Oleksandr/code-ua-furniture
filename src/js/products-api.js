@@ -51,3 +51,10 @@ export async function getPopulatProduct() {
     })
     return response.data;
 }
+
+export function postOrder(obj) {
+    const jsonObj = JSON.stringify(obj)
+    console.log(jsonObj);
+
+    // const response = axios.get(`${API_ENDPOINTS.ORDERS}`)
+}

@@ -47,7 +47,7 @@ export function openModal(id = null, marker = null) {
       <button type="submit" class="modal-submit-btn">Надіслати заявку</button>
     `;
   }
-  
+
   form?.reset();
 
   const phoneInput = document.getElementById('phone');
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!form || form.querySelector('.thank-you-message')) {
       return;
     }
-    
+
     const emailInput = form.querySelector('#email');
     const phoneInput = form.querySelector('#phone');
 
@@ -135,12 +135,12 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    
+
     if (form.querySelector('.thank-you-message')) {
       e.preventDefault();
       return;
     }
-    
+
     e.preventDefault();
     const emailInput = form.querySelector('#email');
     const phoneInput = form.querySelector('#phone');
@@ -182,4 +182,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeTimer = setTimeout(closeModal, 5000);
   });
-});пш
+});

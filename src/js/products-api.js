@@ -53,8 +53,6 @@ export async function getPopulatProduct() {
 }
 
 export async function postOrder(obj) {
-    const jsonObj = JSON.stringify(obj);
-    console.log(jsonObj);
 
     const response = await axios.post(API_ENDPOINTS.ORDERS, obj, {
         headers: {
@@ -63,5 +61,6 @@ export async function postOrder(obj) {
     });
 
     console.log('Відповідь сервера:', response);
+    return response.data;
 
 } 

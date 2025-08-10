@@ -191,7 +191,7 @@ async function handleFormSubmit(e) {
   }
 
   try {
-    await postOrder({
+    const order = await postOrder({
       email,
       phone,
       modelId: furnitureId,
@@ -199,12 +199,14 @@ async function handleFormSubmit(e) {
       comment,
     });
 
-    iziToastSuccess('Ваше замовлення успішно прийнято');
+    iziToastSuccess(`Ваше замовлення успішно прийнято. Номер замовлення: ${order.orderNum} Модель: ${order.model}`);
 
     form.innerHTML = `
       <div class="thank-you-message">
         <h3>Дякуємо за довіру!</h3>
         <p>Очікуйте на зворотний зв'язок.</p>
+        <h4>Номер замовлення: ${order.orderNum}</h4>
+        <p>Модель: ${order.model}</p>
       </div>
     `;
 

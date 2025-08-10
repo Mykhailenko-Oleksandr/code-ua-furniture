@@ -1,7 +1,3 @@
-/** 
- * У файлі constants.js зберігай константи (end-points), які будуть використовуватись в роботі.
- */
-
 export const API_BASE_URL = "https://furniture-store.b.goit.study/api";
 
 export const API_ENDPOINTS = {

@@ -9,7 +9,6 @@ let activeProductId = null;
 let modalCloseBtn = null;
 let modalOrderBtn = null;
 
-// --- ФУНКЦІЯ ВІДКРИТТЯ ВІКНА ---
 export function openProductModal(productId) {
   const product = allLaodProduct.find(item => item._id === productId);
 
@@ -28,7 +27,6 @@ export function openProductModal(productId) {
   modalOrderBtn.addEventListener('click', onOrderBtnClick)
 }
 
-// --- ФУНКЦІЯ ЗАКРИТТЯ ВІКНА ---
 export function closeProductModal() {
   modalCloseBtn.removeEventListener('click', closeProductModal);
   refs.modalProduct.removeEventListener('click', onBackdropClick);
@@ -49,11 +47,6 @@ function onOrderBtnClick() {
   const selectedColor = selectedColorInput ? selectedColorInput.value : null;
 
   if (activeProductId && selectedColor) {
-    // зараз вивела в консоль ці данні
-    console.log(`Обрано товар з ID: ${activeProductId}`);
-    console.log(`Обрано колір: ${selectedColor}`);
-
-
     openModalOrder(activeProductId, selectedColor);
     closeProductModal();
   } else {
@@ -61,20 +54,3 @@ function onOrderBtnClick() {
   }
 }
 
-
-
-
-
-
-
-// тестовий продукт ліст
-// const productsList = document.querySelector('.products-list');
-// if (productsList) {
-//   productsList.addEventListener('click', event => {
-//     const productCard = event.target.closest('.product-card');
-//     if (productCard) {
-//       const productId = productCard.dataset.id;
-//       openProductModal(productId);
-//     }
-//   });
-// }

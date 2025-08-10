@@ -1,6 +1,4 @@
 
-// import iziToast from 'izitoast';
-// import 'izitoast/dist/css/iziToast.min.css';
 import { refs } from './refs';
 import { postOrder } from './products-api';
 import { iziToastError, iziToastSuccess } from './izi-toast';
@@ -8,6 +6,9 @@ import { iziToastError, iziToastSuccess } from './izi-toast';
 let furnitureId = null;
 let furnitureColor = null;
 let closeTimer = null;
+let isCloseBtn = null;
+let isEmailInput = null;
+let isPhoneInput = null;
 
 export function openModalOrder(id = null, color = null) {
   furnitureId = id;
@@ -61,6 +62,10 @@ export function openModalOrder(id = null, color = null) {
   const emailInput = form.querySelector('#email');
   const phoneInput = form.querySelector('#phone');
 
+  isCloseBtn = closeBtn;
+  isEmailInput = emailInput;
+  isPhoneInput = phoneInput;
+
   refs.overlayOrderModal.classList.remove('hidden');
   refs.body.style.overflow = 'hidden';
 
@@ -83,59 +88,6 @@ export function openModalOrder(id = null, color = null) {
   emailInput.addEventListener('input', handleEmailValidation);
   phoneInput.addEventListener('input', handlePhoneValidation);
   form.addEventListener('submit', handleFormSubmit);
-
-  // form.addEventListener('submit', async (e) => {
-  //   const form = e.target;
-  //   if (!form.classList.contains('modal-form')) {
-  //     return;
-  //   }
-  //   e.preventDefault();
-
-  //   if (form.querySelector('.thank-you-message')) {
-  //     return;
-  //   }
-
-
-
-  //   if (!emailInput || !phoneInput) {
-  //     iziToastError('Помилка: Елементи форми не знайдено')
-  //     return;
-  //   }
-
-  //   const email = emailInput.value.trim();
-  //   const phone = phoneInput.value.trim();
-  //   const comment = form.querySelector('#comment')?.value.trim() ?? '';
-
-  //   if (!isValidEmail(email)) {
-  //     iziToastError('Некоректний e-mail');
-  //     emailInput.classList.add('is-invalid');
-  //     return;
-  //   }
-  //   if (!isValidPhone(phone)) {
-  //     iziToastError('Телефон має бути у форматі +380XXXXXXXXX');
-  //     phoneInput.classList.add('is-invalid');
-  //     return;
-  //   }
-
-  //   postOrder({
-  //     email,
-  //     phone,
-  //     modelId: furnitureId,
-  //     color: furnitureColor,
-  //     comment,
-  //   })
-
-  //   iziToastSuccess('Ваше замовлення успішно прийнято');
-
-  //   form.innerHTML = `
-  //     <div class="thank-you-message">
-  //       <h3>Дякуємо за довіру!</h3>
-  //       <p>Очікуйте на зворотний зв'язок.</p>
-  //     </div>
-  //   `;
-
-  //   closeTimer = setTimeout(closeModal, 5000);
-  // });
 }
 
 function closeModal() {
@@ -155,9 +107,13 @@ function closeModal() {
     closeTimer = null;
   }
 
-  closeBtn?.removeEventListener('click', closeModal);
+  isCloseBtn?.removeEventListener('click', closeModal);
   refs.overlayOrderModal.removeEventListener('click', onBackdropClick);
   document.removeEventListener('keydown', onEscapePress);
+  isEmailInput.removeEventListener('input', handleEmailValidation);
+  isPhoneInput.removeEventListener('input', handlePhoneValidation);
+  form.removeEventListener('submit', handleFormSubmit);
+
 }
 
 
@@ -170,12 +126,10 @@ function onEscapePress(e) {
   if (e.key === 'Escape') closeModal();
 }
 
-//////////////
 
 function handleEmailValidation(e) {
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
   const emailInput = e.target;
-  console.log(emailInput);
 
   if (isValidEmail(emailInput.value.trim())) {
     emailInput.classList.add('is-valid');
@@ -205,7 +159,7 @@ function handlePhoneValidation(e) {
   }
 }
 
-function handleFormSubmit(e) {
+async function handleFormSubmit(e) {
   const form = e.target;
   const email = form.elements.email.value.trim();
   const phone = form.elements.phone.value.trim();
@@ -230,31 +184,35 @@ function handleFormSubmit(e) {
 
   if (!isValidEmail(email)) {
     iziToastError('Некоректний e-mail');
-    emailInput.classList.add('is-invalid');
+    isEmailInput.classList.add('is-invalid');
     return;
   }
   if (!isValidPhone(phone)) {
     iziToastError('Телефон має бути у форматі +380XXXXXXXXX');
-    phoneInput.classList.add('is-invalid');
+    isPhoneInput.classList.add('is-invalid');
     return;
   }
 
-  postOrder({
-    email,
-    phone,
-    modelId: furnitureId,
-    color: furnitureColor,
-    comment,
-  })
+  try {
+    await awaitpostOrder({
+      email,
+      phone,
+      modelId: furnitureId,
+      color: furnitureColor,
+      comment,
+    });
 
-  iziToastSuccess('Ваше замовлення успішно прийнято');
+    iziToastSuccess('Ваше замовлення успішно прийнято');
 
-  form.innerHTML = `
+    form.innerHTML = `
       <div class="thank-you-message">
         <h3>Дякуємо за довіру!</h3>
         <p>Очікуйте на зворотний зв'язок.</p>
       </div>
     `;
 
-  closeTimer = setTimeout(closeModal, 5000);
+    closeTimer = setTimeout(closeModal, 5000);
+  } catch (error) {
+    iziToastError('Помилка при відправці замовлення:', error)
+  }
 }

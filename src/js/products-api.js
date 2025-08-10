@@ -54,19 +54,15 @@ export async function getPopulatProduct() {
 }
 
 export async function postOrder(obj) {
-    try {
-        const jsonObj = JSON.stringify(obj);
-        console.log(jsonObj);
+    const jsonObj = JSON.stringify(obj);
+    console.log(jsonObj);
 
-        // const response = await axios.post(API_ENDPOINTS.ORDERS, jsonObj, {
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        // }
-        // });
+    const response = await axios.post(API_ENDPOINTS.ORDERS, jsonObj, {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
 
-        console.log('Відповідь сервера:', response.data);
+    console.log('Відповідь сервера:', response);
 
-    } catch (error) {
-        iziToastError('Помилка при відправці замовлення:', error)
-    }
-}
+} 

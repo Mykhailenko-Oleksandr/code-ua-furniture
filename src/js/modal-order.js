@@ -77,7 +77,6 @@ export function openModalOrder(id = null, color = null) {
 
 
   if (phoneInput) {
-    phoneInput.value = '+380';
     phoneInput.classList.remove('is-invalid', 'is-valid');
   }
 
@@ -142,12 +141,11 @@ function handleEmailValidation(e) {
 
 function handlePhoneValidation(e) {
   const phoneInput = e.target;
-  const isValidPhone = phone => /^\+380\d{9}$/.test(phone);
+  const isValidPhone = phone => /^[0-9]{12}$/.test(phone);
 
-  let value = phoneInput.value;
-  let digits = value.slice(4).replace(/\D/g, '');
-  digits = digits.slice(0, 9);
-  phoneInput.value = '+380' + digits;
+  phoneInput.value = phoneInput.value
+    .replace(/\D/g, '')
+    .slice(0, 12);
 
   if (isValidPhone(phoneInput.value)) {
     phoneInput.classList.add('is-valid');
@@ -163,7 +161,7 @@ async function handleFormSubmit(e) {
   const email = form.elements.email.value.trim();
   const phone = form.elements.phone.value.trim();
   const comment = form.querySelector('#comment')?.value.trim() ?? '';
-  const isValidPhone = (phone) => /^\+380\d{9}$/.test(phone);
+  const isValidPhone = (phone) => /^[0-9]{12}$/.test(phone);
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
 
   if (!form.classList.contains('modal-form')) {

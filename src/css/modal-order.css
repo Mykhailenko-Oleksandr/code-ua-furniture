@@ -1,1 +1,224 @@
-/* Класи для модального вікна order */
+.modal-wrapper {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000040;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-order {
+  background: #fff;
+  border-radius: 8px;
+  padding: 64px;
+  width: 866px;
+  height: 776px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.modal-close-icon {
+  width: 32px;
+  height: 32px;
+  fill: #080c09;
+  pointer-events: none;
+}
+
+.modal-title {
+  margin: 0 auto 48px;
+  max-width: 530px;
+  height: 116px;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: #080c09;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-label p,
+.modal-comment-label p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #080c09;
+  margin: 0 0 8px;
+}
+
+.modal-input {
+  width: 738px;
+  height: 42px;
+  padding: 8px 12px;
+  border: 1px solid rgba(8, 12, 9, 0.15);
+  border-radius: 12px;
+  background: rgba(8, 12, 9, 0.05);
+  font-size: 16px;
+  color: #080c09;
+  outline: none;
+  display: block;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-comment-textarea {
+  width: 738px;
+  height: 180px;
+  padding: 12px;
+  border: 1px solid rgba(8, 12, 9, 0.15);
+  border-radius: 12px;
+  background: rgba(8, 12, 9, 0.05);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #080c09;
+  resize: none;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-submit-btn {
+  display: block;
+  margin: 18px auto 0;
+  width: 196px;
+  height: 46px;
+  border-radius: 100px;
+  background: #6b0609;
+  box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.35s ease, transform 0.2s ease;
+}
+
+.modal-submit-btn:hover,
+.modal-submit-btn:focus {
+  opacity: 0.5;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.input-wrap .text-valid,
+.input-wrap .text-invalid {
+  display: none;
+  font-size: 12px;
+  line-height: 1.6;
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+}
+
+.text-valid {
+  color: green;
+}
+
+.text-invalid {
+  color: #6b0609;
+}
+
+.modal-input.is-invalid {
+  border-color: #6b0609;
+}
+
+.modal-input.is-invalid ~ .text-invalid {
+  display: block;
+}
+
+.modal-input.is-valid {
+  border-color: green;
+}
+
+.modal-input.is-valid ~ .text-valid {
+  display: block;
+}
+
+.modal-field {
+  margin-bottom: 24px;
+}
+
+.modal-comment-label p {
+  margin-bottom: 8px;
+}
+
+.thank-you-message {
+  text-align: center;
+  padding: 40px;
+}
+
+.thank-you-message h3 {
+  margin: 0 0 12px;
+}
+
+.thank-you-message p {
+  margin: 0;
+}
+
+@media (max-width: 1439px) and (min-width: 768px) {
+  .modal-order {
+    width: 704px;
+    height: 776px;
+    padding: 64px;
+  }
+
+  .modal-input,
+  .modal-comment-textarea {
+    width: 576px;
+  }
+}
+
+@media (max-width: 767px) {
+  .modal-order {
+    width: calc(100% - 40px);
+    max-width: 335px;
+    height: 789px;
+    padding: 64px 20px;
+    margin: 0 auto;
+  }
+
+  .modal-title {
+    max-width: 295px;
+    font-size: 36px;
+  }
+
+  .modal-input,
+  .modal-comment-textarea,
+  .modal-submit-btn {
+    width: 100%;
+  }
+
+  .modal-submit-btn {
+    margin-top: 28px;
+  }
+}
+
+.hidden {
+  display: none;
+}

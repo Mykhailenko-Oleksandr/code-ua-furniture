@@ -142,11 +142,10 @@ function handleEmailValidation(e) {
 
 function handlePhoneValidation(e) {
   const phoneInput = e.target;
-  const isValidPhone = (phone) => /^\+380\d{9}$/.test(phone);
+  const isValidPhone = phone => /^\+380\d{9}$/.test(phone);
 
-  let digits = phoneInput.value.replace(/\D/g, '');
-  if (digits.startsWith('380')) digits = digits.slice(3);
-  else if (digits.startsWith('0')) digits = digits.slice(1);
+  let value = phoneInput.value;
+  let digits = value.slice(4).replace(/\D/g, '');
   digits = digits.slice(0, 9);
   phoneInput.value = '+380' + digits;
 

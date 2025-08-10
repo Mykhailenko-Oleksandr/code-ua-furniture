@@ -193,7 +193,7 @@ async function handleFormSubmit(e) {
   }
 
   try {
-    await awaitpostOrder({
+    await postOrder({
       email,
       phone,
       modelId: furnitureId,

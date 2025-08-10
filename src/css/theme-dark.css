@@ -88,6 +88,17 @@ body.theme-dark {
   & .modal-input.is-invalid {
     border-color: #6b0609;
   }
+
+  & input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #1e1e1e inset;
+    -webkit-text-fill-color: #ffffff;
+    transition: background-color 5000s ease-in-out 0s;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -110,6 +121,13 @@ body.theme-dark {
   }
 }
 
-/* input:-internal-autofill-selected {
-  background-color: #6b0609 !important;
+/* input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #1c1c1c inset;
+  -webkit-text-fill-color: #f0f0f0;
+  transition: background-color 5000s ease-in-out 0s;
 } */

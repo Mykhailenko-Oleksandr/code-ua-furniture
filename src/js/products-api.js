@@ -57,7 +57,7 @@ export async function postOrder(obj) {
     const jsonObj = JSON.stringify(obj);
     console.log(jsonObj);
 
-    const response = await axios.post(API_ENDPOINTS.ORDERS, jsonObj, {
+    const response = await axios.post(API_ENDPOINTS.ORDERS, obj, {
         headers: {
             'Content-Type': 'application/json'
         }

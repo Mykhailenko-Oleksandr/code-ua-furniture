@@ -10,11 +10,14 @@
   z-index: 9999;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: visibility 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-navbar.navbar-is-open {
+  pointer-events: unset;
   opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mobile-menu {
@@ -26,14 +29,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 18px;
-  margin-bottom: 32px;
+  padding-top: 19px;
+  padding-bottom: 16px;
 }
 
 .mobile-logo {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    opacity: 0.5;
+  }
 }
 
 .modal-close-btn {
@@ -45,16 +55,15 @@
   padding: 0;
   cursor: pointer;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.modal-close-btn:hover,
-.modal-close-btn:focus {
-  opacity: 0.5;
-}
+  &:hover,
+  &:focus {
+    opacity: 0.5;
+  }
 
-.close-icon {
-  width: 32px;
-  height: 32px;
+  &:active {
+    opacity: 0.6;
+  }
 }
 
 .mob-menu-wrapper {
@@ -62,6 +71,13 @@
   flex-direction: column;
   gap: 32px;
   align-items: center;
+  padding-top: 32px;
+  transform: translateX(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-navbar.navbar-is-open .mob-menu-wrapper {
+  transform: translateX(0);
 }
 
 .mobile-link {
@@ -69,11 +85,15 @@
   font-weight: 600;
   line-height: 1.5;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.mobile-link:hover,
-.mobile-link:focus {
-  opacity: 0.5;
+  &:hover,
+  &:focus {
+    opacity: 0.5;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
 }
 
 .mobile-buy-btn {
@@ -94,20 +114,44 @@
   border: transparent;
   cursor: pointer;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.mobile-buy-btn:hover,
-.mobile-buy-btn:focus {
-  opacity: 0.5;
+  &:hover,
+  &:focus {
+    opacity: 0.5;
+  }
+
+  &:active {
+    opacity: 1;
+  }
 }
 
 @media only screen and (min-width: 768px) {
   .modal-navbar {
     right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .modal-navbar .container {
+    padding: 0;
+  }
+
+  .mobile-menu {
+    align-items: flex-end;
+  }
+
+  .mobile-menu-top {
+    background-color: #ffffff;
+    padding-left: 32px;
+    padding-right: 32px;
+    width: 100%;
   }
 
   .mob-menu-wrapper {
     align-items: flex-end;
+    background-color: #ffffff;
+    padding-right: 32px;
+    padding-bottom: 24px;
+    width: 298px;
   }
 
   .mobile-buy-btn {

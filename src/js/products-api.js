@@ -4,6 +4,7 @@
 
 import axios from 'axios';
 import { API_BASE_URL, API_ENDPOINTS, ITEMS_PER_PAGE } from './constants';
+import { iziToastError } from './izi-toast';
 
 axios.defaults.baseURL = API_BASE_URL;
 
@@ -52,9 +53,20 @@ export async function getPopulatProduct() {
     return response.data;
 }
 
-export function postOrder(obj) {
-    const jsonObj = JSON.stringify(obj)
-    console.log(jsonObj);
+export async function postOrder(obj) {
+    try {
+        const jsonObj = JSON.stringify(obj);
+        console.log(jsonObj);
 
-    // const response = axios.get(`${API_ENDPOINTS.ORDERS}`)
+        // const response = await axios.post(API_ENDPOINTS.ORDERS, jsonObj, {
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        // }
+        // });
+
+        console.log('Відповідь сервера:', response.data);
+
+    } catch (error) {
+        iziToastError('Помилка при відправці замовлення:', error)
+    }
 }

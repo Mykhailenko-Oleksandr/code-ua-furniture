@@ -20,3 +20,16 @@ export function iziToastError(message) {
         theme: 'dark',
     });
 }
+
+export function iziToastSuccess(message) {
+    return iziToast.success({
+        message: message,
+        messageColor: '#fff',
+        messageSize: '16',
+        messageLineHeight: '24',
+        backgroundColor: '#59a10d',
+        position: 'topRight',
+        progressBarColor: '#b5ea7c',
+        theme: 'dark',
+    });
+}

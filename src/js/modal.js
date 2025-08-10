@@ -1,4 +1,3 @@
-
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
@@ -13,7 +12,7 @@ export function openModal(id = null, marker = null) {
   furnitureId = id;
   furnitureMarker = marker;
 
-  overlay?.classList.remove('hidden');
+  overlay?.classList.add('is-active');
   document.body.style.overflow = 'hidden';
 
   if (form && form.querySelector('.thank-you-message')) {
@@ -24,8 +23,8 @@ export function openModal(id = null, marker = null) {
             <p>E-mail*</p>
             <input type="text" name="email" id="email" class="modal-input" placeholder="Ваш e-mail" autocomplete="email" required />
           </label>
-          <span class="text-valid">Дані введено вірно</span>
-          <span class="text-invalid">Некоректний e-mail, спробуйте знову</span>
+          <span class="text-valid" style="display: none;">Дані введено вірно</span>
+          <span class="text-invalid" style="display: none;">Некоректний e-mail, спробуйте знову</span>
         </div>
       </div>
       <div class="modal-field">
@@ -34,8 +33,8 @@ export function openModal(id = null, marker = null) {
             <p>Телефон*</p>
             <input name="phone" id="phone" type="tel" class="modal-input" placeholder="+380" required />
           </label>
-          <span class="text-valid">Дані введено вірно</span>
-          <span class="text-invalid">Некоректний номер, спробуйте знову</span>
+          <span class="text-valid" style="display: none;">Дані введено вірно</span>
+          <span class="text-invalid" style="display: none;">Некоректний номер, спробуйте знову</span>
         </div>
       </div>
       <div class="modal-comment-field">
@@ -60,14 +59,15 @@ export function openModal(id = null, marker = null) {
   if (emailInput) {
     emailInput.classList.remove('is-invalid', 'is-valid');
   }
+
+  document.querySelectorAll('.text-valid, .text-invalid').forEach(el => el.style.display = 'none');
 }
 
 function closeModal() {
   const overlay = document.querySelector('.modal-overlay');
-  const form = document.querySelector('.modal-form');
-  overlay?.classList.add('hidden');
+
+  overlay?.classList.remove('is-active');
   document.body.style.overflow = '';
-  form?.reset();
 
   if (closeTimer) {
     clearTimeout(closeTimer);
@@ -81,10 +81,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const testBtn = document.getElementById('openModalTestBtn');
 
   testBtn?.addEventListener('click', () => openModal());
-
   closeBtn?.addEventListener('click', closeModal);
   overlay?.addEventListener('click', (e) => {
-    if (e.target.classList.contains('modal-overlay')) closeModal();
+    if (e.target === overlay) closeModal();
   });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
@@ -99,32 +98,54 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     
-    const emailInput = form.querySelector('#email');
-    const phoneInput = form.querySelector('#phone');
+    if (e.target.id === 'email') {
+      const emailInput = e.target;
+      const wrapper = emailInput.closest('.input-wrap');
+      const validMsg = wrapper.querySelector('.text-valid');
+      const invalidMsg = wrapper.querySelector('.text-invalid');
 
-    if (e.target === emailInput) {
+      validMsg.style.display = 'none';
+      invalidMsg.style.display = 'none';
+      emailInput.classList.remove('is-valid', 'is-invalid');
+
+      if (emailInput.value.trim() === '') return;
+
       if (isValidEmail(emailInput.value)) {
         emailInput.classList.add('is-valid');
-        emailInput.classList.remove('is-invalid');
+        validMsg.style.display = 'block';
       } else {
         emailInput.classList.add('is-invalid');
-        emailInput.classList.remove('is-valid');
+        invalidMsg.style.display = 'block';
       }
     }
 
-    if (e.target === phoneInput) {
-      let digits = phoneInput.value.replace(/\D/g, '');
-      if (digits.startsWith('380')) digits = digits.slice(3);
-      else if (digits.startsWith('0')) digits = digits.slice(1);
-      digits = digits.slice(0, 9);
-      phoneInput.value = '+380' + digits;
+    if (e.target.id === 'phone') {
+      const phoneInput = e.target;
+      const PURE_PREFIX = '+380';
+      const wrapper = phoneInput.closest('.input-wrap');
+      const validMsg = wrapper.querySelector('.text-valid');
+      const invalidMsg = wrapper.querySelector('.text-invalid');
 
+      if (phoneInput.value.length < PURE_PREFIX.length || !phoneInput.value.startsWith(PURE_PREFIX)) {
+        phoneInput.value = PURE_PREFIX;
+      }
+
+      let phoneNumber = phoneInput.value.replace(/\D/g, '').substring(3);
+      if (phoneNumber.length > 9) phoneNumber = phoneNumber.substring(0, 9);
+      phoneInput.value = PURE_PREFIX + phoneNumber;
+
+      validMsg.style.display = 'none';
+      invalidMsg.style.display = 'none';
+      phoneInput.classList.remove('is-valid', 'is-invalid');
+
+      if (phoneInput.value === PURE_PREFIX) return;
+      
       if (isValidPhone(phoneInput.value)) {
         phoneInput.classList.add('is-valid');
-        phoneInput.classList.remove('is-invalid');
+        validMsg.style.display = 'block';
       } else {
         phoneInput.classList.add('is-invalid');
-        phoneInput.classList.remove('is-valid');
+        invalidMsg.style.display = 'block';
       }
     }
   });
@@ -134,34 +155,25 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!form.classList.contains('modal-form')) {
       return;
     }
-
-    
-    if (form.querySelector('.thank-you-message')) {
-      e.preventDefault();
-      return;
-    }
     
     e.preventDefault();
-    const emailInput = form.querySelector('#email');
-    const phoneInput = form.querySelector('#phone');
-
-    if (!emailInput || !phoneInput) {
-      console.error('Помилка: Елементи форми не знайдено.');
+    
+    if (form.querySelector('.thank-you-message')) {
       return;
     }
-
+    
+    const emailInput = form.querySelector('#email');
+    const phoneInput = form.querySelector('#phone');
     const email = emailInput.value.trim();
     const phone = phoneInput.value.trim();
     const comment = form.querySelector('#comment')?.value.trim() ?? '';
 
     if (!isValidEmail(email)) {
       iziToast.error({ title: 'Помилка', message: 'Некоректний e-mail' });
-      emailInput.classList.add('is-invalid');
       return;
     }
     if (!isValidPhone(phone)) {
       iziToast.error({ title: 'Помилка', message: 'Телефон має бути у форматі +380XXXXXXXXX' });
-      phoneInput.classList.add('is-invalid');
       return;
     }
 
@@ -172,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
       furnitureId,
       furnitureMarker,
     });
-
+    
     form.innerHTML = `
       <div class="thank-you-message">
         <h3>Дякуємо за довіру!</h3>
@@ -182,4 +194,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeTimer = setTimeout(closeModal, 5000);
   });
-});пш
+});

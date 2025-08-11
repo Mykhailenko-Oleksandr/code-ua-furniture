@@ -152,7 +152,7 @@ export function renderPopularProducts(arr) {
   const markup = arr.map(({ images, name, price, _id, color, description }) => {
     return `<div class="popular-list-item swiper-slide">
        <div class="popular-box-content"><img class="popular-item-img" src="${images[0]}" alt="${description}">
-        <h4 class="popular-item-name">${name}</h4>
+        <h3 class="popular-item-name">${name}</h3>
         <div class="popular-colors">
         ${color.map(item => `<span class="item-color" style="background-color: ${item};"></span>`).join('')}
         </div>

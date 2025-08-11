@@ -35,9 +35,6 @@ export function closeProductModal() {
   refs.modalProduct.classList.remove('is-open');
   refs.body.classList.remove('no-scroll');
   refs.modalDetailsContent.innerHTML = '';
-  activeProductId = null;
-  modalCloseBtn = null;
-  modalOrderBtn = null;
 }
 
 function onOrderBtnClick() {
@@ -47,8 +44,8 @@ function onOrderBtnClick() {
   const selectedColor = selectedColorInput ? selectedColorInput.value : null;
 
   if (activeProductId && selectedColor) {
-    openModalOrder(activeProductId, selectedColor);
     closeProductModal();
+    openModalOrder(activeProductId, selectedColor);
   } else {
     iziToastError('Будь ласка, оберіть колір')
   }

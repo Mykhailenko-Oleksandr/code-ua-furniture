@@ -1,5 +1,6 @@
 import { refs } from "./refs";
 import { createColorsMarkup, createGalleryThumbsMarkup, ratyRenderStar } from "./helpers";
+import spriteUrl from '../img/sprite.svg';
 
 export let feedbacksVar;
 const categoriesList = [];
@@ -150,14 +151,14 @@ export function clearFurnitureList() {
 export function renderPopularProducts(arr) {
   const markup = arr.map(({ images, name, price, _id, color, description }) => {
     return `<div class="popular-list-item swiper-slide">
-        <img class="popular-item-img" src="${images[0]}" alt="${description}">
+       <div class="popular-box-content"><img class="popular-item-img" src="${images[0]}" alt="${description}">
         <h4 class="popular-item-name">${name}</h4>
         <div class="popular-colors">
         ${color.map(item => `<span class="item-color" style="background-color: ${item};"></span>`).join('')}
         </div>
         <p class="popular-item-price">${price} грн</p>
         <button class="popular-details-btn" id="${_id}">Детальніше</button>
-        </div>`
+        </div></div> `
   }).join("");
 
   refs.popularSwiperBox.innerHTML = markup;
@@ -173,7 +174,7 @@ export function renderModalSuccess({ orderNum, model }) {
         aria-label="закрити вікно продукта"
       >
         <svg class="modal-close-icon" width="16" height="16">
-          <use href="./img/sprite.svg#icon-x"></use>
+          <use href="${spriteUrl}#icon-x"></use>
         </svg>
       </button>
     </div>

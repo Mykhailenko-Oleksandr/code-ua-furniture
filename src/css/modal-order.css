@@ -60,8 +60,8 @@
   margin-bottom: 48px;
 }
 
-.modal-label p,
-.modal-comment-label p {
+.modal-label-text {
+  display: inline-block;
   font-size: 16px;
   margin-bottom: 8px;
 }

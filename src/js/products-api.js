@@ -49,7 +49,6 @@ export async function getPopulatProduct() {
 }
 
 export async function postOrder(obj) {
-
     const response = await axios.post(API_ENDPOINTS.ORDERS, obj, {
         headers: {
             'Content-Type': 'application/json'

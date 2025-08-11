@@ -10,24 +10,27 @@
 
 .popular-swiper-box.swiper-wrapper {
   display: flex;
+  margin-bottom: 24px;
 }
 
-.popular-list-item {
+.popular-box-content {
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.popular-list-item:hover,
-.popular-list-item:focus {
+.popular-list-item:hover .popular-box-content,
+.popular-list-item:focus .popular-box-content {
   transform: scale(0.95);
-  .popular-item-img {
-    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 1);
-    -webkit-box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 1);
-    -moz-box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 1);
-    outline: 1px solid black;
-  }
-  .popular-details-btn {
-    transform: scale(1.05);
-  }
+}
+
+.popular-list-item:hover .popular-item-img,
+.popular-list-item:focus .popular-item-img {
+  box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 1);
+  outline: 1px solid black;
+}
+
+.popular-list-item:hover .popular-details-btn,
+.popular-list-item:focus .popular-details-btn {
+  transform: scale(1.05);
 }
 
 .popular-item-img {
@@ -66,7 +69,6 @@
     inset 0 -2px 1px 0 rgba(8, 12, 9, 0.05),
     inset 0 0 0 1px rgba(8, 12, 9, 0.05);
   background: rgba(8, 12, 9, 0.05);
-  margin-bottom: 24px;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,

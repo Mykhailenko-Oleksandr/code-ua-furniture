@@ -68,7 +68,7 @@ import{i as N,S as h,a as v,R as ne,A as le}from"./assets/vendor-Bwpr_ifn.js";(f
         <button class="furniture-details-btn" id="${r}">Детальніше</button>
         </li>`).join(""))}function qe(){t.furnitureList.innerHTML=""}function Fe(e){const s=e.map(({images:a,name:n,price:r,_id:o,color:f,description:q})=>`<div class="popular-list-item swiper-slide">
        <div class="popular-box-content"><img class="popular-item-img" src="${a[0]}" alt="${q}">
-        <h4 class="popular-item-name">${n}</h4>
+        <h3 class="popular-item-name">${n}</h3>
         <div class="popular-colors">
         ${f.map(oe=>`<span class="item-color" style="background-color: ${oe};"></span>`).join("")}
         </div>

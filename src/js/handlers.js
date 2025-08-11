@@ -6,7 +6,7 @@ import { swiperFeedback, swiperPoppular } from "./swiper";
 import { refs } from "./refs";
 import { getAllItemsByQuery, getCategoriesByQuery, getItemsByQuery, getFeedback, getPopulatProduct } from "./products-api";
 import { clearFurnitureList, renderCategories, renderFurnitureList, renderFeedback, renderPopularProducts } from "./render-function";
-import { hideLoader, hideLoadMore, showLoader, showLoadMore } from "./helpers";
+import { hideLoader, hideLoadMore, scrollByTop, showLoader, showLoadMore } from "./helpers";
 import { openProductModal } from './modal-product';
 import { deployThemeToggle } from './storage';
 
@@ -14,6 +14,7 @@ let query = "";
 let page = 1;
 let totalCounter;
 export let allLaodProduct = [];
+let isTopPage = true;
 
 export async function initHomePage() {
     deployThemeToggle();
@@ -159,4 +160,17 @@ function onBtnDetalsProduct(event) {
     }
     const idProduct = event.target.id;
     openProductModal(idProduct);
+}
+
+export function handlerScroll() {
+    if (window.scrollY > 400 && isTopPage === true) {
+        isTopPage = false;
+        refs.scrollTopBtn.classList.add('scroll-top-btn--visible');
+        refs.scrollTopBtn.addEventListener('click', scrollByTop);
+
+    } else if (window.scrollY < 400 && isTopPage === false) {
+        isTopPage = true;
+        refs.scrollTopBtn.removeEventListener('click', scrollByTop);
+        refs.scrollTopBtn.classList.remove('scroll-top-btn--visible');
+    }
 }

@@ -128,3 +128,7 @@ export function onEscapePress(event) {
         onCloseInfoModal();
     }
 }
+
+export function scrollByTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}

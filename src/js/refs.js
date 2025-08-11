@@ -2,6 +2,7 @@ export const refs = {
     body: document.querySelector('body'),
     themeToggle: document.querySelector('#theme-toggle'),
     swiperWrapper: document.querySelector('.feedback-swiper-box.swiper-wrapper'),
+    scrollTopBtn: document.querySelector('.scroll-top-btn'),
     // product-modal
     modalProduct: document.querySelector('.modal-product'),
     modalDetailsContent: document.querySelector('.modal-details-content'),

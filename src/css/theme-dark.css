@@ -8,7 +8,7 @@
   border: none;
   border-radius: 50%;
   background-color: #1e1e1e;
-  z-index: 10;
+  z-index: 100;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
@@ -73,6 +73,7 @@ body.theme-dark {
     color: #ffffff;
   }
 
+  & .scroll-top-btn,
   & .swiper-pagination-bullet,
   & .theme-toggle-button,
   & .swiper-pagination-bullet-active {
@@ -97,6 +98,10 @@ body.theme-dark {
     -webkit-box-shadow: 0 0 0px 1000px #1e1e1e inset;
     -webkit-text-fill-color: #ffffff;
     transition: background-color 5000s ease-in-out 0s;
+  }
+
+  & .scroll-top-btn {
+    color: #1e1e1e;
   }
 }
 

@@ -18,7 +18,7 @@ export function openProductModal(productId) {
   refs.modalProduct.classList.add('is-open');
   refs.body.classList.add('no-scroll');
 
-  modalCloseBtn = refs.modalProduct.querySelector('.modal-close-btn');
+  modalCloseBtn = refs.modalProduct.querySelector('.close-product-modal');
   modalOrderBtn = refs.modalProduct.querySelector('.modal-order-btn');
 
   modalCloseBtn.addEventListener('click', closeProductModal);

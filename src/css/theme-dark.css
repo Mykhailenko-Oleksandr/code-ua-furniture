@@ -29,6 +29,9 @@ body.theme-dark {
   background-color: #1e1e1e;
   color: #ffffff;
 
+  & .modal-product .container,
+  & .modal-order .container,
+  & .modal-order-successful .container,
   & .faq-item.ac.js-enabled,
   & .about-us,
   & .furniture-list-item,
@@ -46,9 +49,7 @@ body.theme-dark {
     fill: #ffffff;
   }
 
-  & .modal-order,
   & .about-us,
-  & .modal-product .container,
   & .modal-navbar,
   & .mob-menu-wrapper {
     background-color: #1e1e1e;
@@ -64,11 +65,9 @@ body.theme-dark {
     border-radius: 8px;
   }
 
-  & .modal-comment-textarea,
+  & .modal-textarea,
   & .modal-input,
   & .modal-label p,
-  & .modal-comment-label p,
-  & .modal-title,
   & .faq-answer.ac-panel,
   & .faq-item .faq-question.ac-trigger {
     color: #ffffff;
@@ -81,7 +80,7 @@ body.theme-dark {
   }
 
   & .modal-input,
-  & .modal-comment-textarea {
+  & .modal-textarea {
     border-color: #ffffff;
   }
 
@@ -120,14 +119,3 @@ body.theme-dark {
     height: 40px;
   }
 }
-
-/* input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0px 1000px #1c1c1c inset;
-  -webkit-text-fill-color: #f0f0f0;
-  transition: background-color 5000s ease-in-out 0s;
-} */

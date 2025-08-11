@@ -1,14 +1,9 @@
-/**
- * У файлі render-functions.js зберігай функції для відображення елементів інтерфейсу
- */
-
 import { refs } from "./refs";
 import { createColorsMarkup, createGalleryThumbsMarkup, ratyRenderStar } from "./helpers";
 
 export let feedbacksVar;
 const categoriesList = [];
 
-// --- ФУНКЦІЯ ДЛЯ ГЕНЕРАЦІЇ HTML-РОЗМІТКИ ТОВАРУ ---
 export function renderProductDetailsMarkup(product) {
   const mainImage = product.images[0];
   const galleryThumbs =
@@ -168,3 +163,25 @@ export function renderPopularProducts(arr) {
   refs.popularSwiperBox.innerHTML = markup;
 }
 
+export function renderModalSuccess({ orderNum, model }) {
+  const modalSuccessWrap = refs.modalOrderSuccess.querySelector('.container');
+  modalSuccessWrap.innerHTML = `
+    <div class="modal-close-btn-wrap">
+      <button
+        type="button"
+        class="modal-close-btn close-order-info"
+        aria-label="закрити вікно продукта"
+      >
+        <svg class="modal-close-icon" width="16" height="16">
+          <use href="./img/sprite.svg#icon-x"></use>
+        </svg>
+      </button>
+    </div>
+  <h2 class="success-title">
+  Дякуємо за довіру!</h2>
+    <p class="success-text"> Очікуйте на зворотний зв'язок</p>
+      <p class="number-order">
+        Номер замовлення:<br /><span>${orderNum}</span>
+    </p>
+    <p class="model-order">Модель:<br /><span>${model}</span></p>`;
+}

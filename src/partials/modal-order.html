@@ -1,33 +1,24 @@
-<button id="openModalTestBtn">Відкрити модалку</button>
-
-<div class="modal-wrapper modal-overlay hidden">
-  <div class="modal-order">
-    <button
-      type="button"
-      class="modal-order-close-btn modal-close"
-      aria-label="Закрити"
-    >
-      <svg
-        class="modal-close-icon"
-        width="32"
-        height="32"
-        viewBox="0 0 32 32"
-        aria-hidden="true"
+<div class="modal-order">
+  <div class="container">
+    <div class="modal-close-btn-wrap">
+      <button
+        type="button"
+        class="modal-close-btn close-order"
+        aria-label="закрити вікно продукта"
       >
-        <path
-          d="M21.589 8.459 16 14.047 10.411 8.459 8.526 10.344 14.114 15.932 8.526 21.52 10.411 23.405 16 17.817 21.589 23.405 23.474 21.52 17.886 15.932 23.474 10.344z"
-        />
-      </svg>
-    </button>
+        <svg class="modal-close-icon" width="16" height="16">
+          <use href="./img/sprite.svg#icon-x"></use>
+        </svg>
+      </button>
+    </div>
 
-    <h2 class="modal-title">Замовити зворотний зв'язок</h2>
+    <h2 class="modal-order-title">Замовити зворотний зв'язок</h2>
 
-    <form class="modal-form" novalidate>
-      <div class="modal-field">
-        <div class="input-wrap">
-          <label for="email" class="modal-label">
-            <p>E-mail*</p>
-          </label>
+    <form class="modal-order-form" novalidate>
+      <div class="modal-input-field">
+        <label for="email" class="modal-label">
+          <p>E-mail*</p>
+
           <input
             type="text"
             name="email"
@@ -37,17 +28,14 @@
             autocomplete="email"
             required
           />
-
           <span class="text-valid">Дані введено вірно</span>
           <span class="text-invalid">Некоректний e-mail, спробуйте знову</span>
-        </div>
+        </label>
       </div>
 
-      <div class="modal-field">
-        <div class="input-wrap">
-          <label for="phone" class="modal-label">
-            <p>Телефон*</p>
-          </label>
+      <div class="modal-input-field">
+        <label for="phone" class="modal-label">
+          <p>Телефон*</p>
           <input
             name="phone"
             id="phone"
@@ -58,22 +46,28 @@
           />
           <span class="text-valid">Дані введено вірно</span>
           <span class="text-invalid">Некоректний номер, спробуйте знову</span>
-        </div>
+        </label>
       </div>
 
-      <div class="modal-comment-field">
-        <label for="comment" class="modal-comment-label">
+      <div class="modal-textarea-field">
+        <label for="comment" class="modal-textarea-label modal-label">
           <p>Коментар</p>
           <textarea
             name="comment"
             id="comment"
-            class="modal-comment-input modal-comment-textarea"
+            class="modal-textarea"
             placeholder="Введіть ваше повідомлення..."
           ></textarea>
+          <span class="text-valid">Дані введено вірно</span>
+          <span class="text-invalid">Має бути мінімум 5 символів</span>
         </label>
       </div>
 
       <button type="submit" class="modal-submit-btn">Надіслати заявку</button>
     </form>
   </div>
+</div>
+
+<div class="modal-order-successful">
+  <div class="container"></div>
 </div>

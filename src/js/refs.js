@@ -1,14 +1,14 @@
-/**
- * У файлі refs.js зберігай обʼєкт refs з посиланнями на елементи ДОМ
- */
-
 export const refs = {
     body: document.querySelector('body'),
     themeToggle: document.querySelector('#theme-toggle'),
+    swiperWrapper: document.querySelector('.feedback-swiper-box.swiper-wrapper'),
+    // product-modal
     modalProduct: document.querySelector('.modal-product'),
     modalDetailsContent: document.querySelector('.modal-details-content'),
-    overlayOrderModal: document.querySelector('.modal-overlay'),
-    swiperWrapper: document.querySelector('.feedback-swiper-box.swiper-wrapper'),
+    // order-modal
+    modalOrder: document.querySelector('.modal-order'),
+    modalOrderSuccess: document.querySelector('.modal-order-successful'),
+    modalOrderForm: document.querySelector('.modal-order-form'),
     // furniture
     categories: document.querySelector(".categories"),
     furnitureList: document.querySelector(".furniture-list"),

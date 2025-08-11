@@ -1,7 +1,3 @@
-/**
- * У файлі handlers.js зберігай хендлери, які передаються в addEventListener.
- */
-
 import Accordion from 'accordion-js';
 import 'accordion-js/dist/accordion.min.css';
 import { iziToastError } from "./izi-toast";
@@ -12,8 +8,7 @@ import { getAllItemsByQuery, getCategoriesByQuery, getItemsByQuery, getFeedback,
 import { clearFurnitureList, renderCategories, renderFurnitureList, renderFeedback, renderPopularProducts } from "./render-function";
 import { hideLoader, hideLoadMore, showLoader, showLoadMore } from "./helpers";
 import { openProductModal } from './modal-product';
-import { deployThemeToggle } from './local-storage';
-import { openModalOrder } from './modal-order';
+import { deployThemeToggle } from './storage';
 
 let query = "";
 let page = 1;
@@ -63,12 +58,6 @@ export async function initHomePage() {
     } catch (error) {
         iziToastError(error.message)
     }
-    ///////////////////////////
-    const testBtn = document.getElementById('openModalTestBtn');
-    testBtn?.addEventListener('click', openModalOrder);
-
-
-
 }
 
 export async function handleLoadMore(event) {

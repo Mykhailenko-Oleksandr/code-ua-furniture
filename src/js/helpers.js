@@ -1,11 +1,7 @@
-/**
- * У файлі helpers.js зберігай допоміжні функції, які знадобляться для реалізації завдання
- */
-
 import Raty from 'raty-js';
 import { refs } from './refs';
 import { handleLoadMore } from './handlers';
-import { localStorageThemeToggle } from './local-storage';
+import { localStorageThemeToggle } from './storage';
 import { feedbacksVar } from './render-function';
 
 import iconSun from '../img/sun.png';
@@ -18,6 +14,7 @@ import starOff from '../img/stars/star-off.svg';
 import starOffWhite from '../img/stars/star-off-white.svg';
 import { closeModalNavbar } from './modal-navbar';
 import { closeProductModal } from './modal-product';
+import { closeModalOrder, onCloseInfoModal } from './modal-order';
 
 export function createGalleryThumbsMarkup(images) {
     return images
@@ -104,10 +101,17 @@ export function onBackdropClick(event) {
     if (event.target === refs.modalProduct) {
         closeProductModal();
     }
+
+    if (event.target === refs.modalOrder) {
+        closeModalOrder();
+    }
+
+    if (event.target === refs.modalOrderSuccess) {
+        onCloseInfoModal();
+    }
 }
 
 export function onEscapePress(event) {
-
     if (event.key === 'Escape' && refs.modalProduct.classList.contains('is-open')) {
         closeProductModal();
     }
@@ -116,4 +120,11 @@ export function onEscapePress(event) {
         closeModalNavbar();
     }
 
+    if (event.key === 'Escape' && refs.modalOrder.classList.contains('is-open')) {
+        closeModalOrder();
+    }
+
+    if (event.key === 'Escape' && refs.modalOrderSuccess.classList.contains('is-open')) {
+        onCloseInfoModal();
+    }
 }

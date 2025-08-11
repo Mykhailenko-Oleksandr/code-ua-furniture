@@ -29,13 +29,13 @@ body.theme-dark {
   background-color: #1e1e1e;
   color: #ffffff;
 
+  & .popular-box-content,
   & .modal-product .container,
   & .modal-order .container,
   & .modal-order-successful .container,
   & .faq-item.ac.js-enabled,
   & .about-us,
   & .furniture-list-item,
-  & .popular-list-item,
   & .mobile-menu-top,
   & .header {
     background-image: linear-gradient(360deg, #1e1e1e, #111, #000);
@@ -49,6 +49,7 @@ body.theme-dark {
     fill: #ffffff;
   }
 
+  & .popular-list-item,
   & .about-us,
   & .modal-navbar,
   & .mob-menu-wrapper {
@@ -102,6 +103,13 @@ body.theme-dark {
 
   & .scroll-top-btn {
     color: #1e1e1e;
+  }
+
+  .popular-list-item:hover .popular-item-img,
+  .popular-list-item:focus .popular-item-img,
+  .furniture-list-item:hover .furniture-item-img,
+  .furniture-list-item:focus .furniture-item-img {
+    outline: unset;
   }
 }
 

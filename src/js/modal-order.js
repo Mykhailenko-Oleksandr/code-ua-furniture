@@ -108,7 +108,7 @@ async function handleFormSubmit(event) {
     return;
   }
   if (!isValidPhone(phoneValue)) {
-    iziToastError('Телефон має бути у форматі +380XXXXXXXXX');
+    iziToastError('Телефон має бути у форматі 380XXXXXXXXX');
     isPhoneInput.classList.add('is-invalid');
     return;
   }

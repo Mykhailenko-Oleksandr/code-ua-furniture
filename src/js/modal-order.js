@@ -140,6 +140,7 @@ async function handleFormSubmit(event) {
 
   refs.modalOrderSuccess.classList.add('is-open');
 
+  refs.body.classList.add('no-scroll');
   closeInfoModalBtn = refs.modalOrderSuccess.querySelector('.close-order-info');
 
   closeInfoModalBtn.addEventListener('click', onCloseInfoModal);
@@ -151,6 +152,7 @@ async function handleFormSubmit(event) {
 export function onCloseInfoModal() {
   refs.modalOrderSuccess.classList.remove('is-open');
 
+  refs.body.classList.remove('no-scroll');
   closeInfoModalBtn.removeEventListener('click', onCloseInfoModal);
   refs.modalOrderSuccess.removeEventListener('click', onBackdropClick);
   document.removeEventListener('keydown', onEscapePress);

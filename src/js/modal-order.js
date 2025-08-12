@@ -104,7 +104,7 @@ async function handleFormSubmit(event) {
 
   if (!isValidEmail(emailValue)) {
     iziToastError('Некоректний e-mail');
-    isEmailInput.classList.add('is-invalid');
+    modalEmailInput.classList.add('is-invalid');
     return;
   }
   if (!isValidPhone(phoneValue)) {
